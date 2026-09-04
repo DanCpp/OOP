@@ -4,8 +4,7 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    public static void repair_from(int[] array, int i) {
-        int size = array.length - i;
+    public static void repair_from(int[] array, int i, int size) {
         int it = i;
         while (true) {
             int left = 2 * (it - i) + 1;
@@ -33,11 +32,11 @@ public class Main {
 
     public static void makeHeap(int[] array) {
         for (int heapTop = array.length - 2; heapTop >= 0; heapTop--) {
-            repair_from(array, heapTop);
+            repair_from(array, heapTop, array.length - heapTop);
         }
     }
 
     public static void heapsort(int[] array) {
-
+        
     }
 }
