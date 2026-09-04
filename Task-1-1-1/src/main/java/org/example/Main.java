@@ -7,36 +7,46 @@ public class Main {
     public static void repair_from(int[] array, int i, int size) {
         int it = i;
         while (true) {
-            int left = 2 * (it - i) + 1;
-            int right = 2 * (it - i) + 2;
-            int highest = it - i;
+            int left = 2 * it + 1;
+            int right = 2 * it + 2;
+            int highest = it;
 
-            if (left < size && array[left + i] > array[highest + i]) {
+            if (left < size && array[left] > array[highest]) {
                 highest = left;
             }
-            if (right < size && array[right + i] > array[highest + i]) {
+            if (right < size && array[right] > array[highest]) {
                 highest = right;
             }
 
-            if (highest == (it - i)) {
+            if (highest == it) {
                 break;
             }
 
             int temp = array[it];
-            array[it] = array[highest + i];
-            array[highest + i] = temp;
+            array[it] = array[highest];
+            array[highest] = temp;
 
-            it = highest + i;
+            it = highest;
         }
     }
 
     public static void makeHeap(int[] array) {
-        for (int heapTop = array.length - 2; heapTop >= 0; heapTop--) {
-            repair_from(array, heapTop, array.length - heapTop);
+        for (int current = array.length / 2 - 1; current >= 0; current--) {
+            repair_from(array, current, array.length);
         }
     }
 
     public static void heapsort(int[] array) {
-        
+        makeHeap(array);
+
+        int heapSize = array.length;
+        while (heapSize > 0) {
+            heapSize--;
+            int temp = array[0];
+            array[0] = array[heapSize];
+            array[heapSize] = temp;
+
+            repair_from(array, 0, heapSize);
+        }
     }
 }
