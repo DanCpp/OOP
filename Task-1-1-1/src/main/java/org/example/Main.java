@@ -1,11 +1,12 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+/**
+ * Main class of program.
+ */
 public class Main {
 
     /**
-     * Repairs broken path in binHeap starting from i index
+     * Repairs broken path in binHeap starting from i index.
      * @param binHeap - current broken heap
      * @param i - index of broken element in heap
      * @param size - size of heap that we should repair
@@ -37,7 +38,7 @@ public class Main {
     }
 
     /**
-     * Makes from standard array a max-binHeap
+     * Makes from standard array a max-binHeap.
      * @param array - array of ints that needs to be a binHeap
      */
     public static void makeHeap(int[] array) {
@@ -48,7 +49,7 @@ public class Main {
 
 
     /**
-     * Sorts array using heapsort algorithm that behaves on max-binHeap
+     * Sorts array using heapsort algorithm that behaves on max-binHeap.
      * @param array - array of ints that needs to be sorted
      */
     public static void heapsort(int[] array) {
