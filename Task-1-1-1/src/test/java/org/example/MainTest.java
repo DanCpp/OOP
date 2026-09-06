@@ -11,11 +11,6 @@ class MainTest {
 
     void checkHeap(int[] result) {
         for (int i = 0; i < result.length; i++) {
-            if (!((2 * i + 1) >= result.length || result[i] >= result[2 * i + 1])) {
-                System.out.println(result[i]);
-                System.out.println(result[2 * i + 1]);
-                System.out.println(i);
-            }
             Assertions.assertTrue((2 * i + 1) >= result.length || result[i] >= result[2 * i + 1]);
             Assertions.assertTrue((2 * i + 2) >= result.length || result[i] >= result[2 * i + 2]);
         }
@@ -45,8 +40,9 @@ class MainTest {
     @Test
     void makeHeap_test_3() {
         int size = 100;
+        int seed = 500;
         int[] result = new int[size];
-        Random randomizer = new Random();
+        Random randomizer = new Random(seed);
 
         for (int i = 0; i < size; i++) {
             result[i] = randomizer.nextInt(size);
@@ -67,8 +63,9 @@ class MainTest {
     @Test
     void heapsort_test_2() {
         int size = 1000;
+        int seed = 500;
         int[] result = new int[size];
-        Random randomizer = new Random();
+        Random randomizer = new Random(seed);
 
         for (int i = 0; i < size; i++) {
             result[i] = randomizer.nextInt(size);
@@ -76,5 +73,34 @@ class MainTest {
 
         Main.heapsort(result);
         checkSort(result);
+    }
+
+
+    @Test
+    void heapsort_test_3() {
+        int[] actual = new int[]{};
+        int[] expected = new int[]{};
+
+        Main.heapsort(actual);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    void heapsort_test_4() {
+        int[] actual = new int[]{5};
+        int[] expected = new int[]{5};
+
+        Main.heapsort(actual);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void heapsort_test_5() {
+        int[] actual = new int[]{5, 4};
+        int[] expected = new int[]{4, 5};
+
+        Main.heapsort(actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 }

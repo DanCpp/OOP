@@ -4,17 +4,23 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    public static void repair_from(int[] array, int i, int size) {
+    /**
+     * Repairs broken path in binHeap starting from i index
+     * @param binHeap - current broken heap
+     * @param i - index of broken element in heap
+     * @param size - size of heap that we should repair
+     */
+    private static void repairFrom(int[] binHeap, int i, int size) {
         int it = i;
         while (true) {
             int left = 2 * it + 1;
             int right = 2 * it + 2;
             int highest = it;
 
-            if (left < size && array[left] > array[highest]) {
+            if (left < size && binHeap[left] > binHeap[highest]) {
                 highest = left;
             }
-            if (right < size && array[right] > array[highest]) {
+            if (right < size && binHeap[right] > binHeap[highest]) {
                 highest = right;
             }
 
@@ -22,20 +28,29 @@ public class Main {
                 break;
             }
 
-            int temp = array[it];
-            array[it] = array[highest];
-            array[highest] = temp;
+            int temp = binHeap[it];
+            binHeap[it] = binHeap[highest];
+            binHeap[highest] = temp;
 
             it = highest;
         }
     }
 
+    /**
+     * Makes from standard array a max-binHeap
+     * @param array - array of ints that needs to be a binHeap
+     */
     public static void makeHeap(int[] array) {
         for (int current = array.length / 2 - 1; current >= 0; current--) {
-            repair_from(array, current, array.length);
+            repairFrom(array, current, array.length);
         }
     }
 
+
+    /**
+     * Sorts array using heapsort algorithm that behaves on max-binHeap
+     * @param array - array of ints that needs to be sorted
+     */
     public static void heapsort(int[] array) {
         makeHeap(array);
 
@@ -46,7 +61,7 @@ public class Main {
             array[0] = array[heapSize];
             array[heapSize] = temp;
 
-            repair_from(array, 0, heapSize);
+            repairFrom(array, 0, heapSize);
         }
     }
 }
