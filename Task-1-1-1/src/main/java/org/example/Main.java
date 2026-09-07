@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 /**
  * Main class of program.
  */
@@ -67,7 +69,16 @@ public class Main {
     }
 
 
+    /**
+     * Starting point of program
+     * @param args - arguments from user
+     */
     public static void main(String[] args) {
+        int[] array = new int[]{100, 2, 3, 6, 2, 52, 76};
+
+        System.out.println("Array before sort: " + Arrays.toString(array));
+        heapsort(array);
+        System.out.println("Array after sort: " + Arrays.toString(array));
 
     }
 }
