@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.ClassOrderer;
 import org.junit.jupiter.api.Test;
 import java.util.Random;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,14 +17,14 @@ class MainTest {
         }
     }
 
-    void checkSort(int[] result) {
+    void checkSorted(int[] result) {
         for (int i = 0; i < result.length - 1; i++) {
             Assertions.assertTrue(result[i] <= result[i + 1]);
         }
     }
 
     @Test
-    void makeHeap_test_1() {
+    void makeHeapTestConcreteSmallHeap() {
         int[] result = new int[] {1, 3, 5, 2, 8, 9, 10};
 
         Main.makeHeap(result);
@@ -31,14 +32,14 @@ class MainTest {
     }
 
     @Test
-    void makeHeap_test_2() {
+    void makeHeapTestConcreteBigHeap() {
         int[] result = new int[] {1, 7, 20, 21, 52, 100, 1, 2, 3};
         Main.makeHeap(result);
         checkHeap(result);
     }
 
     @Test
-    void makeHeap_test_3() {
+    void makeHeapTestRandomArray() {
         int size = 100;
         int seed = 500;
         int[] result = new int[size];
@@ -53,7 +54,7 @@ class MainTest {
     }
 
     @Test
-    void heapsort_test_1() {
+    void heapsortTestConcreteArray() {
         int[] expected = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int[] result = new int[] {6, 2, 1, 3, 4, 8, 7, 10, 9, 5};
         Main.heapsort(result);
@@ -61,7 +62,7 @@ class MainTest {
     }
 
     @Test
-    void heapsort_test_2() {
+    void heapsortTestRandomArray() {
         int size = 1000;
         int seed = 500;
         int[] result = new int[size];
@@ -71,13 +72,17 @@ class MainTest {
             result[i] = randomizer.nextInt(size);
         }
 
+        int[] expected = result.clone();
+        Arrays.sort(expected);
+
         Main.heapsort(result);
-        checkSort(result);
+        checkSorted(result);
+        Assertions.assertArrayEquals(expected, result);
     }
 
 
     @Test
-    void heapsort_test_3() {
+    void heapsortTestEmptyArray() {
         int[] actual = new int[]{};
         int[] expected = new int[]{};
 
@@ -87,7 +92,7 @@ class MainTest {
 
 
     @Test
-    void heapsort_test_4() {
+    void heapsortTestOneElementArray() {
         int[] actual = new int[]{5};
         int[] expected = new int[]{5};
 
@@ -96,7 +101,7 @@ class MainTest {
     }
 
     @Test
-    void heapsort_test_5() {
+    void heapsortTestTwoElementArray() {
         int[] actual = new int[]{5, 4};
         int[] expected = new int[]{4, 5};
 
