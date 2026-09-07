@@ -70,7 +70,7 @@ public class Main {
 
 
     /**
-     * Starting point of program
+     * Starting point of program.
      * @param args - arguments from user
      */
     public static void main(String[] args) {
