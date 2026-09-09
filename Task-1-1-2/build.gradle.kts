@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("jacoco")
 }
 
 group = "org.example"
@@ -12,8 +13,22 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required.set(true)
+    }
+}
+
+tasks {
+    withType<JavaCompile>().configureEach { options.encoding = "UTF-8" }
+    withType<JavaExec>().configureEach { defaultCharacterEncoding = "UTF-8" }
+    withType<Javadoc>().configureEach { options.encoding = "UTF-8" }
+    withType<Test>().configureEach { defaultCharacterEncoding = "UTF-8" }
 }
