@@ -19,21 +19,19 @@ public class Deck {
     }
 
     private void loadCardsFromConfig() {
-        try (InputStream is = getClass().getClassLoader().getResourceAsStream("cards.txt")) {
-            if (is == null) { throw new IllegalStateException("Cannot access to file cards.txt in resources"); }
+        InputStream is = getClass().getClassLoader().getResourceAsStream("cards.txt");
+        assert is != null : "Cannot access to file cards.txt in resources";
 
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(is,StandardCharsets.UTF_8))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    if (line.trim().isEmpty()) continue;
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is,StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
 
-                    String[] parts = line.split(",");
-                    String name = parts[0].trim();
-                    int value = Integer.parseInt(parts[1].trim());
-                    cards.push(new Card(name, value));
-                }
+                String[] parts = line.split(",");
+                String name = parts[0].trim();
+                int value = Integer.parseInt(parts[1].trim());
+                cards.push(new Card(name, value));
             }
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.exit(1);
