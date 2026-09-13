@@ -78,6 +78,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Dealer</span>
 <span class="extends-implements">extends <a href="Player.html" title="class in org.example">Player</a></span></div>
+<div class="block">Dealer class to hide the last card in hand.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -99,7 +100,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Dealer</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructor for dealer.</div>
+</div>
 </div>
 </section>
 </li>
@@ -116,13 +119,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearState()" class="member-name-link">clearState</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Clear state of Dealer.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showCard()" class="member-name-link">showCard</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">To view the hidden card.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Overrided version of Player:toString.</div>
+</div>
 </div>
 </div>
 </div>
@@ -147,6 +156,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Dealer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Dealer</span>()</div>
+<div class="block">Constructor for dealer. Calls also Constructor for player.</div>
 </section>
 </li>
 </ul>
@@ -161,9 +171,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
+<div class="block">Overrided version of Player:toString.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Player.html#toString()">toString</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
+<dt>Returns:</dt>
+<dd>Dealer (String)</dd>
 </dl>
 </section>
 </li>
@@ -171,12 +184,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="showCard()">
 <h3>showCard</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showCard</span>()</div>
+<div class="block">To view the hidden card.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="clearState()">
 <h3>clearState</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clearState</span>()</div>
+<div class="block">Clear state of Dealer. Calls Player:clearState and change isCardHidden state.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Player.html#clearState()">clearState</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>

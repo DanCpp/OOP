@@ -76,6 +76,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Engine</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">The main class for this project.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -88,11 +89,15 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Engine</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Usual constructor (default).</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.example.Player,org.example.Dealer,org.example.Deck)" class="member-name-link">Engine</a><wbr>(<a href="Player.html" title="class in org.example">Player</a>&nbsp;player,
  <a href="Dealer.html" title="class in org.example">Dealer</a>&nbsp;dealer,
  <a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Constructor with concrete values of player, dealer and deck.</div>
+</div>
 </div>
 </section>
 </li>
@@ -110,16 +115,24 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#game(int,java.util.Scanner)" class="member-name-link">game</a><wbr>(int&nbsp;rounds_limit,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">simulates the whole game for one deck.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDealerScore()" class="member-name-link">getDealerScore</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Getter for dealerScore.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPlayerScore()" class="member-name-link">getPlayerScore</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Getter for playerScore.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#round(java.util.Scanner)" class="member-name-link">round</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">simulates one round.</div>
+</div>
 </div>
 </div>
 </div>
@@ -141,6 +154,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;()">
 <h3>Engine</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Engine</span>()</div>
+<div class="block">Usual constructor (default).</div>
 </section>
 </li>
 <li>
@@ -149,6 +163,13 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Engine</span><wbr><span class="parameters">(<a href="Player.html" title="class in org.example">Player</a>&nbsp;player,
  <a href="Dealer.html" title="class in org.example">Dealer</a>&nbsp;dealer,
  <a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck)</span></div>
+<div class="block">Constructor with concrete values of player, dealer and deck. Makes more sense in testing.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>player</code> - - concrete player.</dd>
+<dd><code>dealer</code> - - concrete dealer.</dd>
+<dd><code>deck</code> - - concrete deck.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -163,18 +184,33 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="round(java.util.Scanner)">
 <h3>round</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">round</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</span></div>
+<div class="block">simulates one round.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>scanner</code> - - the input from player.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getPlayerScore()">
 <h3>getPlayerScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getPlayerScore</span>()</div>
+<div class="block">Getter for playerScore.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>playerScore (int)</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getDealerScore()">
 <h3>getDealerScore</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getDealerScore</span>()</div>
+<div class="block">Getter for dealerScore.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>dealerScore(int)</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -182,6 +218,12 @@ loadScripts(document, 'script');</script>
 <h3>game</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">game</span><wbr><span class="parameters">(int&nbsp;rounds_limit,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Scanner.html" title="class or interface in java.util" class="external-link">Scanner</a>&nbsp;scanner)</span></div>
+<div class="block">simulates the whole game for one deck.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>rounds_limit</code> - - the limit for rounds</dd>
+<dd><code>scanner</code> - - the input from player</dd>
+</dl>
 </section>
 </li>
 </ul>
