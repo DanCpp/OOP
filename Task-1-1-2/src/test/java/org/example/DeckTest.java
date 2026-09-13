@@ -1,15 +1,21 @@
 package org.example;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DeckTest {
 
+    private Deck deck;
+
+    @BeforeEach
+    void setup() {
+        deck = new Deck();
+    }
+
     @Test
     void sizeChangesAfterTake() {
-        Deck deck = new Deck();
-
         assertEquals(Deck.MAX_CARDS, deck.size());
 
         deck.takeCard();
@@ -19,8 +25,6 @@ class DeckTest {
 
     @Test
     void takeCardThrowsExceptionAtZero() {
-        Deck deck = new Deck();
-
         assertEquals(Deck.MAX_CARDS, deck.size());
 
         for (int i = 0; i < Deck.MAX_CARDS; i++) {

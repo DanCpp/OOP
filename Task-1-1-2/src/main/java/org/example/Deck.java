@@ -7,15 +7,22 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Stack;
+import java.util.Vector;
 
 public class Deck {
     public static final int MAX_CARDS = 52;
 
-    private final Stack<Card> cards = new Stack<>();
+    private final Stack<Card> cards;
 
     public Deck() {
+        cards = new Stack<>();
         loadCardsFromConfig();
         shuffle();
+    }
+
+    public Deck(Vector<Card> cards) {
+        this.cards = new Stack<>();
+        this.cards.addAll(cards);
     }
 
     private void loadCardsFromConfig() {
