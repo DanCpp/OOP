@@ -140,22 +140,22 @@ public class Engine {
 
     /**
      * simulates the whole game for one deck.
-     * @param rounds_limit - the limit for rounds
+     * @param roundsLimit - the limit for rounds
      * @param scanner - the input from player
      */
-    public void game(int rounds_limit, Scanner scanner) {
-        int round_number = 1;
+    public void game(int roundsLimit, Scanner scanner) {
+        int roundNumber = 1;
 
         System.out.println("Welcome to blackjack!!!\nLet it begin!!!");
         do {
-            System.out.println("Round " + round_number);
+            System.out.println("Round " + roundNumber);
             round(scanner);
             player.clearState();
             dealer.clearState();
-            round_number++;
+            roundNumber++;
 
             System.out.printf("The score is: %d : %d (You : dealer)\n", playerScore, dealerScore);
-        } while (deck.size() > 4 && (round_number <= rounds_limit));
+        } while (deck.size() > 4 && (roundNumber <= roundsLimit));
     }
 
 }

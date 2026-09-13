@@ -42,10 +42,14 @@ public class Deck {
         InputStream is = getClass().getClassLoader().getResourceAsStream("cards.txt");
         assert is != null : "Cannot access to file cards.txt in resources";
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(is,StandardCharsets.UTF_8))) {
+        try (BufferedReader reader
+                     = new BufferedReader(
+                             new InputStreamReader(is, StandardCharsets.UTF_8))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                if (line.trim().isEmpty()) continue;
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
 
                 String[] parts = line.split(",");
                 String name = parts[0].trim();
@@ -71,7 +75,9 @@ public class Deck {
      * @return card (Card)
      */
     public Card takeCard() {
-        if (cards.empty()) { throw new IllegalStateException("The deck is empty"); }
+        if (cards.empty()) {
+            throw new IllegalStateException("The deck is empty");
+        }
         return cards.pop();
     }
 

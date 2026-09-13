@@ -20,7 +20,9 @@ public class Dealer extends Player {
      */
     @Override
     public String toString() {
-        if (!isCardHidden) { return super.toString(); }
+        if (!isCardHidden) {
+            return super.toString();
+        }
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
@@ -28,7 +30,9 @@ public class Dealer extends Player {
             stringBuilder.append(hand.get(i).toString());
             stringBuilder.append(", ");
         }
-        if (!hand.isEmpty()) { stringBuilder.append("<the card is hidden>"); }
+        if (!hand.isEmpty()) {
+            stringBuilder.append("<the card is hidden>");
+        }
         stringBuilder.append("]");
         return stringBuilder.toString();
     }
