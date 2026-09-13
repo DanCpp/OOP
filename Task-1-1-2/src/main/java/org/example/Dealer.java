@@ -1,12 +1,23 @@
 package org.example;
 
+
+/**
+ * Dealer class to hide the last card in hand.
+ */
 public class Dealer extends Player {
     private boolean isCardHidden;
 
+    /**
+     * Constructor for dealer. Calls also Constructor for player.
+     */
     public Dealer() {
         this.isCardHidden = true;
     }
 
+    /**
+     * Overrided version of Player:toString.
+     * @return Dealer (String)
+     */
     @Override
     public String toString() {
         if (!isCardHidden) { return super.toString(); }
@@ -22,11 +33,16 @@ public class Dealer extends Player {
         return stringBuilder.toString();
     }
 
-
+    /**
+     * To view the hidden card.
+     */
     public void showCard() {
         isCardHidden = false;
     }
 
+    /**
+     * Clear state of Dealer. Calls Player:clearState and change isCardHidden state.
+     */
     @Override
     public void clearState() {
         super.clearState();

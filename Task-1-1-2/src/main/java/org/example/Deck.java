@@ -9,22 +9,35 @@ import java.util.Collections;
 import java.util.Stack;
 import java.util.Vector;
 
+/**
+ * The Deck class for collect a deck of cards.
+ */
 public class Deck {
     public static final int MAX_CARDS = 52;
 
     private final Stack<Card> cards;
 
+    /**
+     * Most common Deck constructor.
+     */
     public Deck() {
         cards = new Stack<>();
         loadCardsFromConfig();
         shuffle();
     }
 
+    /**
+     * Another Deck constructor if you already have cards to put in.
+     * @param cards - cards that would be in Deck
+     */
     public Deck(Vector<Card> cards) {
         this.cards = new Stack<>();
         this.cards.addAll(cards);
     }
 
+    /**
+     * loads cards from resources/cards.txt config.
+     */
     private void loadCardsFromConfig() {
         InputStream is = getClass().getClassLoader().getResourceAsStream("cards.txt");
         assert is != null : "Cannot access to file cards.txt in resources";
@@ -46,15 +59,26 @@ public class Deck {
     }
 
 
+    /**
+     * shuffles cards.
+     */
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
+    /**
+     * Is used to take card from deck.
+     * @return card (Card)
+     */
     public Card takeCard() {
         if (cards.empty()) { throw new IllegalStateException("The deck is empty"); }
         return cards.pop();
     }
 
+    /**
+     * Returns the current size of deck.
+     * @return size (int)
+     */
     public int size() {
         return cards.size();
     }
