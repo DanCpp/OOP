@@ -14,8 +14,8 @@ class DealerTest {
     @BeforeEach
     void setup() {
         Vector<Card> setupCards = new Vector<>();
-        setupCards.add(new Card("Queen of Spades", 10));
-        setupCards.add(new Card("Jack of Clubs", 10));
+        setupCards.add(new Card(Rank.QUEEN, Suit.SPADES));
+        setupCards.add(new Card(Rank.JACK, Suit.CLUBS));
 
         deck = new Deck(setupCards);
     }
@@ -28,11 +28,11 @@ class DealerTest {
 
         dealer.takeCardFromDeck(deck);
         assertEquals(10, dealer.getScore());
-        assertEquals("[Jack of Clubs (10)] => 10", dealer.toString());
+        assertEquals("[Jack Clubs (10)] => 10", dealer.toString());
 
         dealer.takeCardFromDeck(deck);
         assertEquals(20, dealer.getScore());
-        assertEquals("[Jack of Clubs (10), Queen of Spades (10)] => 20", dealer.toString());
+        assertEquals("[Jack Clubs (10), Queen Spades (10)] => 20", dealer.toString());
     }
 
 
@@ -46,11 +46,11 @@ class DealerTest {
 
         dealer.takeCardFromDeck(deck);
         assertEquals(20, dealer.getScore());
-        assertEquals("[Jack of Clubs (10), <the card is hidden>]", dealer.toString());
+        assertEquals("[Jack Clubs (10), <the card is hidden>]", dealer.toString());
 
         dealer.showCard();
         assertEquals(20, dealer.getScore());
-        assertEquals("[Jack of Clubs (10), Queen of Spades (10)] => 20", dealer.toString());
+        assertEquals("[Jack Clubs (10), Queen Spades (10)] => 20", dealer.toString());
     }
 
     @Test
@@ -63,7 +63,7 @@ class DealerTest {
 
         dealer.showCard();
         assertEquals(10, dealer.getScore());
-        assertEquals("[Jack of Clubs (10)] => 10", dealer.toString());
+        assertEquals("[Jack Clubs (10)] => 10", dealer.toString());
 
         dealer.clearState();
         assertEquals(0, dealer.getScore());
@@ -76,7 +76,7 @@ class DealerTest {
 
         dealer.showCard();
         assertEquals(10, dealer.getScore());
-        assertEquals("[Queen of Spades (10)] => 10", dealer.toString());
+        assertEquals("[Queen Spades (10)] => 10", dealer.toString());
     }
 
 }

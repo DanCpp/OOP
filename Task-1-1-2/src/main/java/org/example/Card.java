@@ -4,17 +4,17 @@ package org.example;
  * The Card class for storing card with it's name to show and value to evaluate score.
  */
 public final class Card {
-    private final String name;
-    private final int value;
+    private final Suit suit;
+    private final Rank rank;
 
     /**
      * Card constructor.
      * @param name - name of card.
      * @param value - value of card by rules.
      */
-    public Card(String name, int value) {
-        this.name = name;
-        this.value = value;
+    public Card(Rank rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
     }
 
     /**
@@ -22,7 +22,7 @@ public final class Card {
      * @return value (int)
      */
     public int getValue() {
-        return value;
+        return rank.getValue();
     }
 
     /**
@@ -30,7 +30,7 @@ public final class Card {
      * @return name (String)
      */
     public String getName() {
-        return name;
+        return rank.toString() + " " + suit.toString();
     }
 
     /**
@@ -39,6 +39,6 @@ public final class Card {
      */
     @Override
     public String toString() {
-        return String.format("%s (%d)", name, value);
+        return String.format("%s (%d)", getName(), rank.getValue());
     }
 }

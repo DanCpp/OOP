@@ -16,19 +16,19 @@ class EngineTest {
     void setup() {
         Vector<Card> setupCards = new Vector<>();
 
-        setupCards.add(new Card("Queen of Spades", 10));
-        setupCards.add(new Card("Seven of Spades", 7));
-        setupCards.add(new Card("Jack of Clubs", 10));
-        setupCards.add(new Card("Eight of Spades", 8));
-        setupCards.add(new Card("Three of Diamonds", 3));
-        setupCards.add(new Card("Four of Diamonds", 4));
+        setupCards.add(new Card(Rank.QUEEN, Suit.SPADES));
+        setupCards.add(new Card(Rank.SEVEN, Suit.SPADES));
+        setupCards.add(new Card(Rank.JACK, Suit.CLUBS));
+        setupCards.add(new Card(Rank.EIGHT, Suit.SPADES));
+        setupCards.add(new Card(Rank.THREE, Suit.DIAMONDS));
+        setupCards.add(new Card(Rank.FOUR, Suit.DIAMONDS));
 
-        setupCards.add(new Card("Queen of Spades", 10));
-        setupCards.add(new Card("Jack of Clubs", 10));
-        setupCards.add(new Card("Seven of Spades", 7));
-        setupCards.add(new Card("Eight of Spades", 8));
-        setupCards.add(new Card("King of Spades", 10));
-        setupCards.add(new Card("Ten of Spades", 10));
+        setupCards.add(new Card(Rank.QUEEN, Suit.SPADES));
+        setupCards.add(new Card(Rank.JACK, Suit.CLUBS));
+        setupCards.add(new Card(Rank.SEVEN, Suit.SPADES));
+        setupCards.add(new Card(Rank.EIGHT, Suit.SPADES));
+        setupCards.add(new Card(Rank.KING, Suit.SPADES));
+        setupCards.add(new Card(Rank.TEN, Suit.SPADES));
 
         Deck deck = new Deck(setupCards);
         Player player = new Player();

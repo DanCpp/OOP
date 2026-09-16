@@ -13,8 +13,8 @@ class PlayerTest {
     @BeforeEach
     void setup() {
         Vector<Card> setupCards = new Vector<>();
-        setupCards.add(new Card("Queen of Spades", 10));
-        setupCards.add(new Card("Jack of Clubs", 10));
+        setupCards.add(new Card(Rank.QUEEN, Suit.SPADES));
+        setupCards.add(new Card(Rank.JACK, Suit.CLUBS));
 
         deck = new Deck(setupCards);
     }
@@ -35,11 +35,11 @@ class PlayerTest {
 
         player.takeCardFromDeck(deck);
         assertEquals(10, player.getScore());
-        assertEquals("[Jack of Clubs (10)] => 10", player.toString());
+        assertEquals("[Jack Clubs (10)] => 10", player.toString());
 
         player.takeCardFromDeck(deck);
         assertEquals(20, player.getScore());
-        assertEquals("[Jack of Clubs (10), Queen of Spades (10)] => 20", player.toString());
+        assertEquals("[Jack Clubs (10), Queen Spades (10)] => 20", player.toString());
     }
 
     @Test
@@ -48,7 +48,7 @@ class PlayerTest {
 
         player.takeCardFromDeck(deck);
         assertEquals(10, player.getScore());
-        assertEquals("[Jack of Clubs (10)] => 10", player.toString());
+        assertEquals("[Jack Clubs (10)] => 10", player.toString());
 
         player.clearState();
         assertEquals(0, player.getScore());

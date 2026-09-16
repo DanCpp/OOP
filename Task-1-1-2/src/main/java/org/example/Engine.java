@@ -13,6 +13,9 @@ public class Engine {
     private int dealerScore;
 
 
+    public static final int DEALER_STOP_LOW_LIMIT = 17;
+    public static final int THE_ABSOLUTE_WINNING_SCORE = 21;
+
     /**
      * Usual constructor (default).
      */
@@ -63,7 +66,7 @@ public class Engine {
      * @return isLost (boolean)
      */
     private boolean lostOnLimits(Player man) {
-        return man.getScore() > 21;
+        return man.getScore() > THE_ABSOLUTE_WINNING_SCORE;
     }
 
     /**
@@ -101,7 +104,7 @@ public class Engine {
 
 
         dealer.showCard();
-        while (dealer.getScore() < 17) {
+        while (dealer.getScore() < DEALER_STOP_LOW_LIMIT) {
             showHands();
 
             dealer.takeCardFromDeck(deck);
