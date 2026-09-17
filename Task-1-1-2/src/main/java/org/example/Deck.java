@@ -48,7 +48,7 @@ public class Deck {
     }
 
     /**
-     * loads cards from resources/cards.txt config.
+     * loads cards with all variations of enum combinations.
      */
     private void loadFullDeckOfCards() {
         for (Suit suit : Suit.values()) {
