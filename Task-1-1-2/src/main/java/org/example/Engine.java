@@ -12,6 +12,12 @@ public class Engine {
     private int playerScore;
     private int dealerScore;
 
+    public enum MoveState {
+        CONTINUE,
+        LOST,
+        STOP
+    }
+
 
     public static final int DEALER_STOP_LOW_LIMIT = 17;
     public static final int THE_ABSOLUTE_WINNING_SCORE = 21;
@@ -75,6 +81,31 @@ public class Engine {
      */
     private boolean roundWasWon() {
         return player.getScore() > dealer.getScore();
+    }
+
+    protected MoveState simulatePlayerMove(Scanner scanner) {
+        showHands();
+        System.out.println("make your choice!\n1 - take a card; 0 - stay;");
+
+        int input = scanner.nextInt();
+
+        if (input == 0) {
+            return MoveState.STOP;
+        }
+
+
+        player.takeCardFromDeck(deck);
+        if (lostOnLimits(player)) {
+            showHands();
+            dealerScore++;
+            System.out.println("You lost(((");
+            return MoveState.LOST;
+        } else if (player.getScore() == THE_ABSOLUTE_WINNING_SCORE) {
+            System.out.println("You already have the highest score. Now wait for dealer move");
+            return MoveState.STOP;
+        }
+
+        return MoveState.CONTINUE;
     }
 
     /**
