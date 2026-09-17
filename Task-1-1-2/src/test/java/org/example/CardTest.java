@@ -16,7 +16,7 @@ class CardTest {
 
     @Test
     void getFieldsFromRandomDeckCard() {
-        assertEquals(Deck.MAX_CARDS, deck.size());
+        assertEquals(Deck.MAX_CARDS_IN_ONE_DECK, deck.size());
 
         Card card = deck.takeCard();
         assertEquals(card.toString(), String.format("%s (%d)", card.getName(), card.getValue()));

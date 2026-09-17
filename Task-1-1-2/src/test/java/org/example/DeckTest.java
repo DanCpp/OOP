@@ -8,26 +8,27 @@ import static org.junit.jupiter.api.Assertions.*;
 class DeckTest {
 
     private Deck deck;
+    private final int decksCount = 2;
 
     @BeforeEach
     void setup() {
-        deck = new Deck();
+        deck = new Deck(decksCount);
     }
 
     @Test
     void sizeChangesAfterTake() {
-        assertEquals(Deck.MAX_CARDS, deck.size());
+        assertEquals(Deck.MAX_CARDS_IN_ONE_DECK * decksCount, deck.size());
 
         deck.takeCard();
 
-        assertEquals(Deck.MAX_CARDS - 1, deck.size());
+        assertEquals(Deck.MAX_CARDS_IN_ONE_DECK * decksCount - 1, deck.size());
     }
 
     @Test
     void takeCardThrowsExceptionAtZero() {
-        assertEquals(Deck.MAX_CARDS, deck.size());
+        assertEquals(Deck.MAX_CARDS_IN_ONE_DECK * decksCount, deck.size());
 
-        for (int i = 0; i < Deck.MAX_CARDS; i++) {
+        for (int i = 0; i < Deck.MAX_CARDS_IN_ONE_DECK * decksCount; i++) {
             deck.takeCard();
         }
 

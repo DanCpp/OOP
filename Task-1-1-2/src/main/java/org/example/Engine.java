@@ -25,8 +25,8 @@ public class Engine {
     /**
      * Usual constructor (default).
      */
-    public Engine() {
-        this (new Player(), new Dealer(), new Deck());
+    public Engine(int decksCount) {
+        this (new Player(), new Dealer(), new Deck(decksCount));
     }
 
     /**
@@ -52,6 +52,8 @@ public class Engine {
      * Dealer gets fourth card.
      */
     private void setupCards() {
+        player.clearState();
+        dealer.clearState();
         for (int i = 0; i < 2; i++) {
             player.takeCardFromDeck(deck);
             dealer.takeCardFromDeck(deck);
@@ -76,32 +78,46 @@ public class Engine {
     }
 
     /**
-     * Helps to understand have player won or not.
-     * @return isPlayerWins (boolean)
+     * Simulates ONE PLAYER move.
+     * @param scanner - scanner for player choose
+     * @return current MoveState of player
      */
-    private boolean roundWasWon() {
-        return player.getScore() > dealer.getScore();
-    }
-
     protected MoveState simulatePlayerMove(Scanner scanner) {
-        showHands();
-        System.out.println("make your choice!\n1 - take a card; 0 - stay;");
-
         int input = scanner.nextInt();
 
         if (input == 0) {
             return MoveState.STOP;
         }
 
-
         player.takeCardFromDeck(deck);
         if (lostOnLimits(player)) {
-            showHands();
-            dealerScore++;
-            System.out.println("You lost(((");
             return MoveState.LOST;
         } else if (player.getScore() == THE_ABSOLUTE_WINNING_SCORE) {
-            System.out.println("You already have the highest score. Now wait for dealer move");
+            return MoveState.STOP;
+        }
+
+        return MoveState.CONTINUE;
+    }
+
+    /**
+     * Simulates ONE DEALER move.
+     * @return current MoveState of dealer
+     */
+    protected MoveState simulateDealerMove() {
+        if (dealer.getScore() >= DEALER_STOP_LOW_LIMIT) {
+            return MoveState.STOP;
+        }
+
+        dealer.takeCardFromDeck(deck);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (lostOnLimits(dealer)) {
+            return MoveState.LOST;
+        } else if (dealer.getScore() >= DEALER_STOP_LOW_LIMIT) {
             return MoveState.STOP;
         }
 
@@ -114,40 +130,28 @@ public class Engine {
      */
     public void round(Scanner scanner) {
         setupCards();
-        int input = 0;
+        MoveState state;
         do {
-            showHands();
             System.out.println("make your choice!\n1 - take a card; 0 - stay;");
-
-            input = scanner.nextInt();
-
-            if (input != 0) {
-                player.takeCardFromDeck(deck);
-            }
-            if (lostOnLimits(player)) {
-                showHands();
-                dealerScore++;
-                System.out.println("You lost(((");
-                return;
-            }
-        } while (input != 0);
-
-
-
-        dealer.showCard();
-        while (dealer.getScore() < DEALER_STOP_LOW_LIMIT) {
             showHands();
+            state = simulatePlayerMove(scanner);
+        } while (state == MoveState.CONTINUE);
 
-            dealer.takeCardFromDeck(deck);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        if (state == MoveState.LOST) {
+            showHands();
+            dealerScore++;
+            System.out.println("You lost(((");
+            return;
         }
 
+        dealer.showCard();
+        do {
+            showHands();
+            state = simulateDealerMove();
+        } while (state == MoveState.CONTINUE);
+
         showHands();
-        if (lostOnLimits(dealer) || roundWasWon()) {
+        if (state == MoveState.LOST || dealer.getScore() < player.getScore()) {
             playerScore++;
             System.out.println("You win!!!");
         } else {
@@ -173,6 +177,22 @@ public class Engine {
     }
 
     /**
+     * Getter for dealer hand score.
+     * @return dealer.score
+     */
+    public int getDealerHandScore() {
+        return dealer.getScore();
+    }
+
+    /**
+     * Getter for player hand score.
+     * @return player.score
+     */
+    public int getPlayerHandScore() {
+        return player.getScore();
+    }
+
+    /**
      * simulates the whole game for one deck.
      * @param roundsLimit - the limit for rounds
      * @param scanner - the input from player
@@ -184,8 +204,6 @@ public class Engine {
         do {
             System.out.println("Round " + roundNumber);
             round(scanner);
-            player.clearState();
-            dealer.clearState();
             roundNumber++;
 
             System.out.printf("The score is: %d : %d (You : dealer)\n", playerScore, dealerScore);

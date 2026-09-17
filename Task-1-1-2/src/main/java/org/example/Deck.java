@@ -13,7 +13,7 @@ import java.util.Vector;
  * The Deck class for collect a deck of cards.
  */
 public class Deck {
-    public static final int MAX_CARDS = 52;
+    public static final int MAX_CARDS_IN_ONE_DECK = 52;
 
     private final Stack<Card> cards;
 
@@ -23,6 +23,18 @@ public class Deck {
     public Deck() {
         cards = new Stack<>();
         loadFullDeckOfCards();
+        shuffle();
+    }
+
+    /**
+     * Deck constructor for a lot of decks in game
+     * @param decksCount - how many decks would be in game
+     */
+    public Deck(int decksCount) {
+        cards = new Stack<>();
+        for (int i = 0; i < decksCount; i++) {
+            loadFullDeckOfCards();
+        }
         shuffle();
     }
 

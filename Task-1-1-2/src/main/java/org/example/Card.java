@@ -9,8 +9,8 @@ public final class Card {
 
     /**
      * Card constructor.
-     * @param name - name of card.
-     * @param value - value of card by rules.
+     * @param rank - rank of card.
+     * @param suit - suit of card.
      */
     public Card(Rank rank, Suit suit) {
         this.rank = rank;
