@@ -23,7 +23,7 @@ public enum Rank {
 
 
     /**
-     * constructor for enum
+     * constructor for enum.
      * @param value - value of card spelled by rules.
      * @param displayName - name of card that would be written in console.
      */

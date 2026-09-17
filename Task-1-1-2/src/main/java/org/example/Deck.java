@@ -27,7 +27,7 @@ public class Deck {
     }
 
     /**
-     * Deck constructor for a lot of decks in game
+     * Deck constructor for a lot of decks in game.
      * @param decksCount - how many decks would be in game
      */
     public Deck(int decksCount) {

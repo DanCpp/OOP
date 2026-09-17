@@ -12,6 +12,9 @@ public class Engine {
     private int playerScore;
     private int dealerScore;
 
+    /**
+     * inner enum in engine that shows the current state of player or dealer move.
+     */
     public enum MoveState {
         CONTINUE,
         LOST,
