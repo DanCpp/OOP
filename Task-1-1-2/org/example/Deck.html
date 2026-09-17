@@ -90,7 +90,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#MAX_CARDS" class="member-name-link">MAX_CARDS</a></code></div>
+<div class="col-second even-row-color"><code><a href="#MAX_CARDS_IN_ONE_DECK" class="member-name-link">MAX_CARDS_IN_ONE_DECK</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -107,8 +107,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">Most common Deck constructor.</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.Vector)" class="member-name-link">Deck</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Vector.html" title="class or interface in java.util" class="external-link">Vector</a>&lt;<a href="Card.html" title="class in org.example">Card</a>&gt;&nbsp;cards)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">Deck</a><wbr>(int&nbsp;decksCount)</code></div>
 <div class="col-last odd-row-color">
+<div class="block">Deck constructor for a lot of decks in game</div>
+</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.Vector)" class="member-name-link">Deck</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Vector.html" title="class or interface in java.util" class="external-link">Vector</a>&lt;<a href="Card.html" title="class in org.example">Card</a>&gt;&nbsp;cards)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Another Deck constructor if you already have cards to put in.</div>
 </div>
 </div>
@@ -158,14 +162,14 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="MAX_CARDS">
-<h3>MAX_CARDS</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_CARDS</span></div>
+<section class="detail" id="MAX_CARDS_IN_ONE_DECK">
+<h3>MAX_CARDS_IN_ONE_DECK</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_CARDS_IN_ONE_DECK</span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="../../constant-values.html#org.example.Deck.MAX_CARDS">Constant Field Values</a></li>
+<li><a href="../../constant-values.html#org.example.Deck.MAX_CARDS_IN_ONE_DECK">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
@@ -184,6 +188,17 @@ loadScripts(document, 'script');</script>
 <h3>Deck</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Deck</span>()</div>
 <div class="block">Most common Deck constructor.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(int)">
+<h3>Deck</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Deck</span><wbr><span class="parameters">(int&nbsp;decksCount)</span></div>
+<div class="block">Deck constructor for a lot of decks in game</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>decksCount</code> - - how many decks would be in game</dd>
+</dl>
 </section>
 </li>
 <li>
