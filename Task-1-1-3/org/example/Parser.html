@@ -76,7 +76,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Parser</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">A utility class responsible for parsing mathematical expression strings into an executable expression tree.
+<div class="block">A utility class responsible for parsing mathematical expression
+ strings into an executable expression tree.
  The parser uses a variant of the Shunting-yard algorithm to handle operator precedence
  (multiplication and division over addition and subtraction) and nested parentheses,
  converting the infix notation into a structured Abstract Syntax Tree (AST).</div>
@@ -149,7 +150,8 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in org.example">Expression</a></span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;expression)</span></div>
 <div class="block">Parses a string representation of a mathematical expression into an <a href="Expression.html" title="class in org.example"><code>Expression</code></a> tree.
  Supports basic arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>),
- numeric constants, multi-character alphabetic variables, and parentheses for operation grouping.
+ numeric constants, multi-character alphabetic variables,
+ and parentheses for operation grouping.
  Spaces within the string are automatically ignored.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -157,7 +159,8 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>the root node of the constructed expression tree</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/EmptyStackException.html" title="class or interface in java.util" class="external-link">EmptyStackException</a></code> - if the expression string has unbalanced parentheses or invalid syntax</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/EmptyStackException.html" title="class or interface in java.util" class="external-link">EmptyStackException</a></code> - if the expression string
+ has unbalanced parentheses or invalid syntax</dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NumberFormatException.html" title="class or interface in java.lang" class="external-link">NumberFormatException</a></code> - if a numerical token exceeds integer bounds</dd>
 </dl>
 </section>
