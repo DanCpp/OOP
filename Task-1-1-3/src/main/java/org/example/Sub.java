@@ -44,12 +44,11 @@ public class Sub extends Binary {
 
     @Override
     public Expression simplify() {
+        lhs = lhs.simplify();
+        rhs = rhs.simplify();
         if (lhs.equals(rhs)) {
             return new Number(0);
         }
-
-        lhs = lhs.simplify();
-        rhs = rhs.simplify();
 
         int left = 0;
         int right = 0;

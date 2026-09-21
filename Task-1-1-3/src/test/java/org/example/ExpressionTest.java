@@ -177,4 +177,67 @@ class ExpressionTest {
         assertEquals(-5, dexpr.eval("x = 1"));
     }
 
+    @Test
+    void testSimplifyMulWithZeroLeft() {
+        Expression mul = new Mul(new Number(0), new Variable("x"));
+        Expression simpleMul = mul.simplify();
+
+        assertEquals(0, simpleMul.eval());
+    }
+
+    @Test
+    void testSimplifyMulWithZeroRight() {
+        Expression mul = new Mul(new Variable("x"), new Number(0));
+        Expression simpleMul = mul.simplify();
+
+        assertEquals(0, simpleMul.eval());
+    }
+
+    @Test
+    void testSimplifyMulWithOneLeft() {
+        Expression mul = new Mul(new Number(1), new Number(52));
+        Expression simpleMul = mul.simplify();
+
+        assertEquals("52", simpleMul.toString());
+    }
+
+    @Test
+    void testSimplifyMulWithOneRight() {
+        Expression mul = new Mul(new Number(52), new Number(1));
+        Expression simpleMul = mul.simplify();
+
+        assertEquals("52", simpleMul.toString());
+    }
+
+    @Test
+    void testSimplifySubWithEqualsExpressions() {
+        Expression sub = new Sub(new Mul(new Number(2), new Number(2)), new Mul(new Number(2), new Number(2)));
+        Expression simpleSub = sub.simplify();
+
+        assertEquals("0", simpleSub.toString());
+    }
+
+    @Test
+    void testSimplifySubWithEqualsEvaluatedExpressions() {
+        Expression sub = new Sub(new Mul(new Number(2), new Number(2)), new Add(new Number(2), new Number(2)));
+        Expression simpleSub = sub.simplify();
+
+        assertEquals("0", simpleSub.toString());
+    }
+
+    @Test
+    void testSimplifyAddWithZeroLeft() {
+        Expression add = new Add(new Number(0), new Variable("x"));
+        Expression simpleAdd = add.simplify();
+
+        assertEquals("x", simpleAdd.toString());
+    }
+
+    @Test
+    void testSimplifyAddWithZeroRight() {
+        Expression add = new Add(new Variable("y"), new Number(0));
+        Expression simpleAdd = add.simplify();
+
+        assertEquals("y", simpleAdd.toString());
+    }
 }
