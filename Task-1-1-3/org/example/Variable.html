@@ -127,7 +127,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eval(java.util.HashMap)" class="member-name-link">eval</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;signifying)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Evaluates and returns the numeric value assigned to this variable by looking it up in the provided map.</div>
+<div class="block">Evaluates the numeric value assigned to this variable by looking it up in the map.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Expression.html" title="class in org.example">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#simplify()" class="member-name-link">simplify</a>()</code></div>
@@ -189,7 +189,7 @@ loadScripts(document, 'script');</script>
 <dt>Parameters:</dt>
 <dd><code>var</code> - the variable name with respect to which the differentiation is performed.</dd>
 <dt>Returns:</dt>
-<dd>a <a href="Number.html" title="class in org.example"><code>Number</code></a> node containing 1 if the variable names match, or 0 otherwise.</dd>
+<dd>a <a href="Number.html" title="class in org.example"><code>Number</code></a>.</dd>
 </dl>
 </section>
 </li>
@@ -197,9 +197,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</span></div>
-<div class="block">Compares this variable expression with the specified object for equality.
- Two <code>Variable</code> nodes are considered equal if they share the exact same
- symbolic identifier name.</div>
+<div class="block">Compares this variable expression with the specified object for equality.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#equals(java.lang.Object)">equals</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in org.example">Expression</a></code></dd>
@@ -222,8 +220,6 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="Expression.html#eval()">eval</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in org.example">Expression</a></code></dd>
 <dt>Returns:</dt>
 <dd>none (always throws an exception).</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - always, because a variable cannot be evaluated without variable mappings.</dd>
 </dl>
 </section>
 </li>
@@ -231,7 +227,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="eval(java.util.HashMap)">
 <h3>eval</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;signifying)</span></div>
-<div class="block">Evaluates and returns the numeric value assigned to this variable by looking it up in the provided map.</div>
+<div class="block">Evaluates the numeric value assigned to this variable by looking it up in the map.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#eval(java.util.HashMap)">eval</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in org.example">Expression</a></code></dd>
@@ -240,8 +236,6 @@ loadScripts(document, 'script');</script>
                    integer values as values.</dd>
 <dt>Returns:</dt>
 <dd>the integer value associated with this variable's name.</dd>
-<dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/NullPointerException.html" title="class or interface in java.lang" class="external-link">NullPointerException</a></code> - if the variable name does not exist within the map keys</dd>
 </dl>
 </section>
 </li>
