@@ -23,7 +23,8 @@ public class Parser {
      * @param operation   the new operator being registered
      */
     private static void addOperation(Stack<ParserOperation> operations,
-                                     Stack<ParserExpression> expressions, ParserOperation operation) {
+                                     Stack<ParserExpression> expressions,
+                                     ParserOperation operation) {
         if (operations.empty()) {
             operations.push(operation);
             return;
@@ -124,9 +125,6 @@ public class Parser {
      *
      * @param expression the raw mathematical expression string to parse
      * @return the root node of the constructed expression tree
-     * @throws java.util.EmptyStackException if the expression string
-     * has unbalanced parentheses or invalid syntax
-     * @throws NumberFormatException         if a numerical token exceeds integer bounds
      */
     public static Expression parse(String expression) {
         char[] input = expression.toCharArray();
@@ -155,8 +153,7 @@ public class Parser {
                 case '/':
                     addOperation(operations, expressions, new ParserOperation('/', 3));
                     break;
-                default:
-                {
+                default: {
                     if (Character.isDigit(input[i])) { // Number
                         StringBuilder numberString = new StringBuilder();
                         while (i < expression.length() && Character.isDigit(input[i])) {

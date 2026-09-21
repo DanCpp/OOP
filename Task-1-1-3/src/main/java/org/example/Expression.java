@@ -10,7 +10,7 @@ import java.util.HashMap;
 public abstract class Expression {
 
     /**
-     * Computes the mathematical derivative of this expression with respect to the specified variable.
+     * Computes the mathematical derivative of this expression.
      *
      * @param var the name of the variable with respect to which the differentiation is performed
      * @return a new {@code Expression} representing the derivative
@@ -64,7 +64,7 @@ public abstract class Expression {
     /**
      * Evaluates the expression using a string that specifies variable assignments.
      *
-     * @param signifyingString a string containing variable definitions, e.g., {@code "x = 2; y = 3"}
+     * @param signifyingString a string containing variable definitions
      * @return the integer result of the evaluation after parsing and applying the variables
      * @throws ArrayIndexOutOfBoundsException if the input string format is invalid
      * @throws NumberFormatException if a variable value cannot be parsed into an integer
@@ -77,8 +77,8 @@ public abstract class Expression {
         HashMap<String, Integer> signifying = new HashMap<String, Integer>();
 
         for (String variable : vars) {
-            String[] name_number = variable.split(" = ");
-            signifying.put(name_number[0], Integer.valueOf(name_number[1]));
+            String[] nameNumber = variable.split(" = ");
+            signifying.put(nameNumber[0], Integer.valueOf(nameNumber[1]));
         }
 
         return eval(signifying);

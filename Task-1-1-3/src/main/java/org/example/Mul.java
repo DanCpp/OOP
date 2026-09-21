@@ -112,7 +112,7 @@ public class Mul extends Binary {
             } else if (left == 1) {
                 return rhs.simplify();
             }
-        } catch(Exception ignored) {
+        } catch (Exception ignored) {
             containsVariable = true;
         }
 
@@ -123,7 +123,7 @@ public class Mul extends Binary {
             } else if (right == 1) {
                 return lhs.simplify();
             }
-        } catch(Exception ignored) {
+        } catch (Exception ignored) {
             containsVariable = true;
         }
 
