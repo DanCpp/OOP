@@ -24,9 +24,6 @@ public class Variable extends Expression {
 
     /**
      * Computes the partial derivative of this variable with respect to a target variable.
-     * According to calculus rules:
-     * The derivative of a variable with respect to itself is 1 (dx/dx = 1) [10].
-     * The derivative of a variable with respect to any other independent variable is 0 (dy/dx = 0) [10].
      *
      * @param var the variable name with respect to which the differentiation is performed.
      * @return a {@link Number} node containing 1 if the variable names match, or 0 otherwise.

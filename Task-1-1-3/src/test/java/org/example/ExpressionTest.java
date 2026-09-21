@@ -63,34 +63,42 @@ class ExpressionTest {
     @Test
     void equalsReflexion() {
         Expression add = new Add(new Number(2), new Number(3));
-        Expression sub = new Sub(new Number(2), new Number(3));
-        Expression mul = new Mul(new Number(2), new Number(3));
-        Expression div = new Div(new Number(2), new Number(3));
-        Expression variable = new Variable("x");
-        Expression number = new Number(5);
-
         assertEquals(add, add);
+
+        Expression sub = new Sub(new Number(2), new Number(3));
         assertEquals(sub, sub);
+
+        Expression mul = new Mul(new Number(2), new Number(3));
         assertEquals(mul, mul);
+
+        Expression div = new Div(new Number(2), new Number(3));
         assertEquals(div, div);
+
+        Expression variable = new Variable("x");
         assertEquals(variable, variable);
+
+        Expression number = new Number(5);
         assertEquals(number, number);
     }
 
     @Test
     void notEqualsWithNull() {
         Expression add = new Add(new Number(2), new Number(3));
-        Expression sub = new Sub(new Number(2), new Number(3));
-        Expression mul = new Mul(new Number(2), new Number(3));
-        Expression div = new Div(new Number(2), new Number(3));
-        Expression variable = new Variable("x");
-        Expression number = new Number(5);
-
         assertFalse(add.equals(null));
+
+        Expression sub = new Sub(new Number(2), new Number(3));
         assertFalse(sub.equals(null));
+
+        Expression mul = new Mul(new Number(2), new Number(3));
         assertFalse(mul.equals(null));
+
+        Expression div = new Div(new Number(2), new Number(3));
         assertFalse(div.equals(null));
+
+        Expression variable = new Variable("x");
         assertFalse(variable.equals(null));
+
+        Expression number = new Number(5);
         assertFalse(number.equals(null));
     }
 

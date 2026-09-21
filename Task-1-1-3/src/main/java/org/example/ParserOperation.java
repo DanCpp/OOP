@@ -8,7 +8,7 @@ package org.example;
 public class ParserOperation extends ParserExpression {
 
     /**
-     * The character symbol representing the operator or delimiter (e.g., '+', '-', '*', '/', '(', ')').
+     * The character symbol representing the operator or delimiter.
      */
     protected final char operand;
 
