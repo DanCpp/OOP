@@ -26,7 +26,7 @@ public class Variable extends Expression {
      * Computes the partial derivative of this variable with respect to a target variable.
      *
      * @param var the variable name with respect to which the differentiation is performed.
-     * @return a {@link Number} node containing 1 if the variable names match, or 0 otherwise.
+     * @return a {@link Number}.
      */
     @Override
     public Expression derivative(String var) {
@@ -38,8 +38,6 @@ public class Variable extends Expression {
 
     /**
      * Compares this variable expression with the specified object for equality.
-     * Two {@code Variable} nodes are considered equal if they share the exact same
-     * symbolic identifier name.
      *
      * @param obj the object to be compared for equality with this expression.
      * @return {@code true} if the specified object is equal to this variable;
@@ -64,7 +62,6 @@ public class Variable extends Expression {
      * Since variables require explicit assignments to yield numeric values, this call is invalid.
      *
      * @return none (always throws an exception).
-     * @throws IllegalStateException always, because a variable cannot be evaluated without variable mappings.
      */
     @Override
     protected int eval() {
@@ -72,12 +69,11 @@ public class Variable extends Expression {
     }
 
     /**
-     * Evaluates and returns the numeric value assigned to this variable by looking it up in the provided map.
+     * Evaluates the numeric value assigned to this variable by looking it up in the map.
      *
      * @param signifying a map containing variable names as keys and their corresponding
      *                   integer values as values.
      * @return the integer value associated with this variable's name.
-     * @throws NullPointerException if the variable name does not exist within the map keys
      */
     @Override
     protected int eval(HashMap<String, Integer> signifying) {
