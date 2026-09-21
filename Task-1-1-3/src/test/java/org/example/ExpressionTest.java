@@ -104,12 +104,12 @@ class ExpressionTest {
 
     @Test
     void notEqualsWithDifferentType() {
-        Expression add = new Add(new Number(2), new Number(3));
-        Expression sub = new Sub(new Number(2), new Number(3));
-        Expression mul = new Mul(new Number(2), new Number(3));
-        Expression div = new Div(new Number(2), new Number(3));
-        Expression variable = new Variable("x");
-        Expression number = new Number(5);
+        final Expression add = new Add(new Number(2), new Number(3));
+        final Expression sub = new Sub(new Number(2), new Number(3));
+        final Expression mul = new Mul(new Number(2), new Number(3));
+        final Expression div = new Div(new Number(2), new Number(3));
+        final Expression variable = new Variable("x");
+        final Expression number = new Number(5);
 
         assertFalse(add.equals(sub));
         assertFalse(sub.equals(add));
@@ -121,19 +121,19 @@ class ExpressionTest {
 
     @Test
     void equalsWithSameAST() {
-        Expression add = new Add(new Number(2), new Number(3));
-        Expression sub = new Sub(new Number(2), new Number(3));
-        Expression mul = new Mul(new Number(2), new Number(3));
-        Expression div = new Div(new Number(2), new Number(3));
-        Expression variable = new Variable("x");
-        Expression number = new Number(5);
+        final Expression add = new Add(new Number(2), new Number(3));
+        final Expression sub = new Sub(new Number(2), new Number(3));
+        final Expression mul = new Mul(new Number(2), new Number(3));
+        final Expression div = new Div(new Number(2), new Number(3));
+        final Expression variable = new Variable("x");
+        final Expression number = new Number(5);
 
-        Expression add1 = new Add(new Number(2), new Number(3));
-        Expression sub1 = new Sub(new Number(2), new Number(3));
-        Expression mul1 = new Mul(new Number(2), new Number(3));
-        Expression div1 = new Div(new Number(2), new Number(3));
-        Expression variable1 = new Variable("x");
-        Expression number1 = new Number(5);
+        final Expression add1 = new Add(new Number(2), new Number(3));
+        final Expression sub1 = new Sub(new Number(2), new Number(3));
+        final Expression mul1 = new Mul(new Number(2), new Number(3));
+        final Expression div1 = new Div(new Number(2), new Number(3));
+        final Expression variable1 = new Variable("x");
+        final Expression number1 = new Number(5);
 
         assertEquals(add, add1);
         assertEquals(sub, sub1);
