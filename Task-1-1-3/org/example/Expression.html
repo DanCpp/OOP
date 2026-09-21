@@ -113,7 +113,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="Expression.html" title="class in org.example">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#derivative(java.lang.String)" class="member-name-link">derivative</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;var)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Computes the mathematical derivative of this expression with respect to the specified variable.</div>
+<div class="block">Computes the mathematical derivative of this expression.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
@@ -180,7 +180,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="derivative(java.lang.String)">
 <h3>derivative</h3>
 <div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in org.example">Expression</a></span>&nbsp;<span class="element-name">derivative</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;var)</span></div>
-<div class="block">Computes the mathematical derivative of this expression with respect to the specified variable.</div>
+<div class="block">Computes the mathematical derivative of this expression.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>var</code> - the name of the variable with respect to which the differentiation is performed</dd>
@@ -267,7 +267,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Evaluates the expression using a string that specifies variable assignments.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>signifyingString</code> - a string containing variable definitions, e.g., <code>"x = 2; y = 3"</code></dd>
+<dd><code>signifyingString</code> - a string containing variable definitions</dd>
 <dt>Returns:</dt>
 <dd>the integer result of the evaluation after parsing and applying the variables</dd>
 <dt>Throws:</dt>
