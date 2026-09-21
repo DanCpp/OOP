@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.HashMap;
+
 public class Number extends Expression {
     private final int number;
 
@@ -24,5 +26,25 @@ public class Number extends Expression {
 
         Number objNumber = (Number) obj;
         return objNumber.number == number;
+    }
+
+    @Override
+    protected int eval() {
+        return number;
+    }
+
+    @Override
+    protected int eval(HashMap<String, Integer> signifying) {
+        return number;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(number);
+    }
+
+    @Override
+    public Expression simplify() {
+        return this;
     }
 }
