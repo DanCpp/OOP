@@ -88,15 +88,15 @@ public class Parser {
         while (!reversed.empty()) {
             ParserExpression expr = reversed.pop();
             switch (expr.type) {
-                case ExprType.Number:
+                case Number:
                     ParserNumber number = (ParserNumber) expr;
                     astExpressions.push(new Number(number.number));
                     break;
-                case ExprType.Variable:
+                case Variable:
                     ParserVariable variable = (ParserVariable) expr;
                     astExpressions.push(new Variable(variable.varName));
                     break;
-                case ExprType.BinaryOperation:
+                case BinaryOperation:
                     ParserOperation op = (ParserOperation) expr;
                     Expression rhs = astExpressions.pop();
                     Expression lhs = astExpressions.pop();
