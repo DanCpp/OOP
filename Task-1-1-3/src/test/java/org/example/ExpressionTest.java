@@ -120,7 +120,7 @@ class ExpressionTest {
     }
 
     @Test
-    void equalsWithSameAST() {
+    void equalsWithSameAst() {
         final Expression add = new Add(new Number(2), new Number(3));
         final Expression sub = new Sub(new Number(2), new Number(3));
         final Expression mul = new Mul(new Number(2), new Number(3));
@@ -219,7 +219,8 @@ class ExpressionTest {
 
     @Test
     void testSimplifySubWithEqualsExpressions() {
-        Expression sub = new Sub(new Mul(new Number(2), new Number(2)), new Mul(new Number(2), new Number(2)));
+        Expression sub = new Sub(new Mul(new Number(2), new Number(2)),
+                new Mul(new Number(2), new Number(2)));
         Expression simpleSub = sub.simplify();
 
         assertEquals("0", simpleSub.toString());
@@ -227,7 +228,8 @@ class ExpressionTest {
 
     @Test
     void testSimplifySubWithEqualsEvaluatedExpressions() {
-        Expression sub = new Sub(new Mul(new Number(2), new Number(2)), new Add(new Number(2), new Number(2)));
+        Expression sub = new Sub(new Mul(new Number(2), new Number(2)),
+                new Add(new Number(2), new Number(2)));
         Expression simpleSub = sub.simplify();
 
         assertEquals("0", simpleSub.toString());
@@ -265,15 +267,16 @@ class ExpressionTest {
                 new Add(
                         new Variable("test"), new Number(5)),
                 new Sub(new Div(new Number(5), new Number(1)), new Variable("test")));
-        String expected_hard = "((test + 5) * ((5 / 1) - test))";
-        assertEquals(expected_hard, hard.toString());
+        String expectedHard = "((test + 5) * ((5 / 1) - test))";
+        assertEquals(expectedHard, hard.toString());
 
         Expression derivative = hard.derivative("test");
-        String expected_derivative = "(((1 + 0) * ((5 / 1) - test)) + ((test + 5) * ((((0 * 1) - (5 * 0)) / (1 * 1)) - 1)))";
-        assertEquals(expected_derivative, derivative.toString());
+        String expectedDerivative
+                = "(((1 + 0) * ((5 / 1) - test)) + ((test + 5) * ((((0 * 1) - (5 * 0)) / (1 * 1)) - 1)))";
+        assertEquals(expectedDerivative, derivative.toString());
 
-        Expression simplified_derivative = derivative.simplify();
-        String expected_simplified = "((5 - test) + ((test + 5) * (-1)))";
-        assertEquals(expected_simplified, simplified_derivative.toString());
+        Expression simplifiedDerivative = derivative.simplify();
+        String expectedSimplifiedDerivative = "((5 - test) + ((test + 5) * (-1)))";
+        assertEquals(expectedSimplifiedDerivative, simplifiedDerivative.toString());
     }
 }
