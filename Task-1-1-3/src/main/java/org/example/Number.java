@@ -87,6 +87,7 @@ public class Number extends Expression {
      */
     @Override
     public String toString() {
+        if (number < 0) return "(" + Integer.toString(number) + ")";
         return Integer.toString(number);
     }
 

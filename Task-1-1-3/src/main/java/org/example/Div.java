@@ -103,16 +103,16 @@ public class Div extends Binary {
      */
     @Override
     public Expression simplify() {
-        lhs = lhs.simplify();
-        rhs = rhs.simplify();
+        Expression left_side = lhs.simplify();
+        Expression right_side = rhs.simplify();
 
         int left = 0;
         int right = 0;
         try {
-            left = lhs.eval();
-            right = rhs.eval();
+            left = left_side.eval();
+            right = right_side.eval();
         } catch (Exception ignored) {
-            return this;
+            return new Div(left_side, right_side);
         }
 
         return new Number(left / right);

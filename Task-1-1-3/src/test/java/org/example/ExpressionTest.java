@@ -248,4 +248,32 @@ class ExpressionTest {
 
         assertEquals("y", simpleAdd.toString());
     }
+
+    @Test
+    void testToStringMethodWithVariable() {
+        Expression hard = new Mul(
+                new Add(
+                        new Variable("test"), new Number(5)),
+                new Sub(new Div(new Number(5), new Number(1)), new Variable("test")));
+        String expected = "((test + 5) * ((5 / 1) - test))";
+        assertEquals(expected, hard.toString());
+    }
+
+    @Test
+    void testToStringMethodAfterDerivative() {
+        Expression hard = new Mul(
+                new Add(
+                        new Variable("test"), new Number(5)),
+                new Sub(new Div(new Number(5), new Number(1)), new Variable("test")));
+        String expected_hard = "((test + 5) * ((5 / 1) - test))";
+        assertEquals(expected_hard, hard.toString());
+
+        Expression derivative = hard.derivative("test");
+        String expected_derivative = "(((1 + 0) * ((5 / 1) - test)) + ((test + 5) * ((((0 * 1) - (5 * 0)) / (1 * 1)) - 1)))";
+        assertEquals(expected_derivative, derivative.toString());
+
+        Expression simplified_derivative = derivative.simplify();
+        String expected_simplified = "((5 - test) + ((test + 5) * (-1)))";
+        assertEquals(expected_simplified, simplified_derivative.toString());
+    }
 }
