@@ -97,16 +97,16 @@ public class Add extends Binary {
      */
     @Override
     public Expression simplify() {
-        Expression left_side = lhs.simplify();
-        Expression right_side = rhs.simplify();
+        Expression leftSide = lhs.simplify();
+        Expression rightSide = rhs.simplify();
 
         boolean containsVariables = false;
         int left = 0;
         int right = 0;
         try {
-            left = left_side.eval();
+            left = leftSide.eval();
             if (left == 0) {
-                return right_side;
+                return rightSide;
             }
         } catch (Exception ignored) {
             // Ignored because eval() can throw an exception if lhs contains a variable
@@ -114,9 +114,9 @@ public class Add extends Binary {
         }
 
         try {
-            right = right_side.eval();
+            right = rightSide.eval();
             if (right == 0) {
-                return left_side;
+                return leftSide;
             }
         }  catch (Exception ignored) {
             // Ignored because eval() can throw an exception if rhs contains a variable
@@ -124,7 +124,7 @@ public class Add extends Binary {
         }
 
         if (containsVariables) {
-            return new Add(left_side, right_side);
+            return new Add(leftSide, rightSide);
         }
 
         return new Number(left + right);

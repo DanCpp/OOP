@@ -106,20 +106,20 @@ public class Sub extends Binary {
      */
     @Override
     public Expression simplify() {
-        Expression left_side = lhs.simplify();
-        Expression right_side = rhs.simplify();
-        if (left_side.equals(right_side)) {
+        Expression leftSide = lhs.simplify();
+        Expression rightSide = rhs.simplify();
+        if (leftSide.equals(rightSide)) {
             return new Number(0);
         }
 
         int left = 0;
         int right = 0;
         try {
-            left = left_side.eval();
-            right = right_side.eval();
+            left = leftSide.eval();
+            right = rightSide.eval();
         } catch (Exception ignored) {
             // ignored because eval can throw exception if lhs or rhs contains variable
-            return new Sub(left_side, right_side);
+            return new Sub(leftSide, rightSide);
         }
 
         return new Number(left - right);

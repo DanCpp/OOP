@@ -98,37 +98,37 @@ public class Mul extends Binary {
      */
     @Override
     public Expression simplify() {
-        Expression left_side = lhs.simplify();
-        Expression right_side = rhs.simplify();
+        Expression leftSide = lhs.simplify();
+        Expression rightSide = rhs.simplify();
 
         int left = 0;
         int right = 0;
 
         boolean containsVariable = false;
         try {
-            left = left_side.eval();
+            left = leftSide.eval();
             if (left == 0) {
                 return new Number(0);
             } else if (left == 1) {
-                return right_side;
+                return rightSide;
             }
         } catch (Exception ignored) {
             containsVariable = true;
         }
 
         try {
-            right = right_side.eval();
+            right = rightSide.eval();
             if (right == 0) {
                 return new Number(0);
             } else if (right == 1) {
-                return left_side;
+                return leftSide;
             }
         } catch (Exception ignored) {
             containsVariable = true;
         }
 
         if (containsVariable) {
-            return new Mul(left_side, right_side);
+            return new Mul(leftSide, rightSide);
         }
 
         return new Number(left * right);
