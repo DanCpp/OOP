@@ -1,5 +1,6 @@
 package sys.pro;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public interface Graph {
@@ -8,5 +9,5 @@ public interface Graph {
 
     void removeEdge(Vertex from, Vertex to);
     List<Vertex> getVertex();
-    void generateGraphFrom(String filename);
+    void generateGraphFrom(String filename) throws FileNotFoundException;
 }
