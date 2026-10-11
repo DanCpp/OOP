@@ -51,12 +51,10 @@ class MatrixGraphTest {
         graph.addVertex(v1);
         graph.addVertex(v2);
 
-        // Добавляем ребро
         graph.addEdge(v1, v2);
         boolean[][] matrixAfterAdd = getAdjacencyMatrix(graph);
         assertTrue(matrixAfterAdd[0][1], "true for v1 -> v2");
 
-        // Удаляем ребро
         graph.removeEdge(v1, v2);
         boolean[][] matrixAfterRemove = getAdjacencyMatrix(graph);
         assertFalse(matrixAfterRemove[0][1], "sets false when deleted");
@@ -75,7 +73,6 @@ class MatrixGraphTest {
 
     @Test
     void testGenerateGraphFrom(@TempDir Path tempDir) throws IOException, Exception {
-        // Подготавливаем временный файл с тестовыми данными
         Path tempFile = tempDir.resolve("graph_test.txt");
         String fileContent =
                 """
@@ -89,19 +86,15 @@ class MatrixGraphTest {
 
         Files.writeString(tempFile, fileContent);
 
-        // Вызываем метод чтения из файла
         graph.generateGraphFrom(tempFile.toAbsolutePath().toString());
 
-        // Проверяем вершины
         List<Vertex> vertices = graph.getVertex();
         assertEquals(3, vertices.size(), "3 vertices");
 
-        // Проверяем, что вершины имеют правильные имена
         assertEquals(10, vertices.get(0).getName());
         assertEquals(20, vertices.get(1).getName());
         assertEquals(30, vertices.get(2).getName());
 
-        // Проверяем ребра через рефлексию
         boolean[][] matrix = getAdjacencyMatrix(graph);
         assertTrue(matrix[0][1], "edge from 10 to 20");
         assertTrue(matrix[1][2], "edge from 20 to 30");

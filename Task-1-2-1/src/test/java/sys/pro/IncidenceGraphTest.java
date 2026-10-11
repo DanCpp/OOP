@@ -50,7 +50,6 @@ class IncidenceGraphTest {
         int v1Index = vertices.indexOf(v1);
         int v2Index = vertices.indexOf(v2);
 
-        // Проверяем, что в матрице инцидентности проставлены правильные значения (1 для исходящей, -1 для входящей)
         assertEquals(1, incidenceMatrix[v1Index][0]);
         assertEquals(-1, incidenceMatrix[v2Index][0]);
 
@@ -109,15 +108,13 @@ class IncidenceGraphTest {
         Vertex v20 = vertices.stream().filter(v -> v.getName() == 20).findFirst().orElseThrow();
         Vertex v30 = vertices.stream().filter(v -> v.getName() == 30).findFirst().orElseThrow();
 
-        int v10Idx = vertices.indexOf(v10);
-        int v20Idx = vertices.indexOf(v20);
-        int v30Idx = vertices.indexOf(v30);
+        final int v10Idx = vertices.indexOf(v10);
+        final int v20Idx = vertices.indexOf(v20);
+        final int v30Idx = vertices.indexOf(v30);
 
-        // Проверяем первое ребро (10 -> 20)
         assertEquals(1, incidenceMatrix[v10Idx][0]);
         assertEquals(-1, incidenceMatrix[v20Idx][0]);
 
-        // Проверяем второе ребро (20 -> 30)
         assertEquals(1, incidenceMatrix[v20Idx][1]);
         assertEquals(-1, incidenceMatrix[v30Idx][1]);
     }
@@ -164,7 +161,7 @@ class IncidenceGraphTest {
         List<Vertex> vertices = graph.getVertex();
 
         int v1Index = vertices.indexOf(v1);
-        assertEquals(2, incidenceMatrix[v1Index][0], "Loop should be represented by 2 in the matrix");
+        assertEquals(2, incidenceMatrix[v1Index][0]);
     }
 
     @Test

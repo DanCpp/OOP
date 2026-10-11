@@ -71,26 +71,32 @@ public class IncidenceGraph implements Graph {
      */
     @Override
     public void addEdge(Vertex from, Vertex to) {
-        if (!vertices.contains(from)) addVertex(from);
-        if (!vertices.contains(to)) addVertex(to);
+        if (!vertices.contains(from)) {
+            addVertex(from);
+        }
+        if (!vertices.contains(to)) {
+            addVertex(to);
+        }
 
         for (Edge e : edges) {
-            if (e.from.equals(from) && e.to.equals(to)) return;
+            if (e.from.equals(from) && e.to.equals(to)) {
+                return;
+            }
         }
 
         Edge newEdge = new Edge(from, to);
         edges.add(newEdge);
         ensureCapacity(vertices.size(), edges.size());
 
-        int vFromIndex = vertices.indexOf(from);
-        int vToIndex = vertices.indexOf(to);
+        int fromIndex = vertices.indexOf(from);
+        int toIndex = vertices.indexOf(to);
         int edgeIndex = edges.size() - 1;
 
         if (from.equals(to)) {
-            incidenceMatrix[vFromIndex][edgeIndex] = 2;
+            incidenceMatrix[fromIndex][edgeIndex] = 2;
         } else {
-            incidenceMatrix[vFromIndex][edgeIndex] = 1;
-            incidenceMatrix[vToIndex][edgeIndex] = -1;
+            incidenceMatrix[fromIndex][edgeIndex] = 1;
+            incidenceMatrix[toIndex][edgeIndex] = -1;
         }
     }
 

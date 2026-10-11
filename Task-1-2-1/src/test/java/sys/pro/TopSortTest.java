@@ -12,7 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class TopSortTest {
 
     private Graph graph;
-    private Vertex v1, v2, v3, v4;
+    private Vertex v1;
+    private Vertex v2;
+    private Vertex v3;
+    private Vertex v4;
 
     @BeforeEach
     void setUp() {
@@ -104,7 +107,9 @@ class TopSortTest {
 
     private boolean isValidTopologicalSort(List<Vertex> order, Graph g) {
         List<Vertex> allVertices = g.getVertex();
-        if (order.size() != allVertices.size()) return false;
+        if (order.size() != allVertices.size()) {
+            return false;
+        }
 
         Map<Vertex, Integer> positions = new HashMap<>();
         for (int i = 0; i < order.size(); i++) {
