@@ -5,16 +5,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Implementation of a directed graph using an adjacency matrix.
+ * This matrix dynamically expands when the number of vertices exceeds its capacity.
+ */
 public class MatrixGraph implements Graph {
     private final List<Vertex> vertices;
     private boolean[][] adjacencyMatrix;
     private static final int INITIAL_CAPACITY = 10;
 
+    /**
+     * Initializes an empty matrix graph with a default initial capacity.
+     */
     public MatrixGraph() {
         this.vertices = new ArrayList<>();
         this.adjacencyMatrix = new boolean[INITIAL_CAPACITY][INITIAL_CAPACITY];
     }
 
+    /**
+     * Adds a vertex to the graph. Expands the adjacency matrix if needed.
+     *
+     * @param v the vertex to be added
+     */
     @Override
     public void addVertex(Vertex v) {
         if (!vertices.contains(v)) {
@@ -26,13 +38,20 @@ public class MatrixGraph implements Graph {
                 boolean[][] newMatrix = new boolean[newCapacity][newCapacity];
 
                 for (int i = 0; i < adjacencyMatrix.length; i++) {
-                    System.arraycopy(adjacencyMatrix[i], 0, newMatrix[i], 0, adjacencyMatrix[i].length);
+                    System.arraycopy(adjacencyMatrix[i], 0, newMatrix[i], 0,
+                            adjacencyMatrix[i].length);
                 }
                 adjacencyMatrix = newMatrix;
             }
         }
     }
 
+    /**
+     * Adds a directed edge between two vertices. Automatically adds missing vertices.
+     *
+     * @param from the source vertex
+     * @param to   the target vertex
+     */
     @Override
     public void addEdge(Vertex from, Vertex to) {
         int fromIndex = vertices.indexOf(from);
@@ -50,6 +69,12 @@ public class MatrixGraph implements Graph {
         adjacencyMatrix[fromIndex][toIndex] = true;
     }
 
+    /**
+     * Removes a directed edge between the specified vertices if they exist.
+     *
+     * @param from the source vertex
+     * @param to   the target vertex
+     */
     @Override
     public void removeEdge(Vertex from, Vertex to) {
         int fromIndex = vertices.indexOf(from);
@@ -60,11 +85,22 @@ public class MatrixGraph implements Graph {
         }
     }
 
+    /**
+     * Returns a copy of the list containing all vertices in the graph.
+     *
+     * @return a list of vertices
+     */
     @Override
     public List<Vertex> getVertex() {
         return new ArrayList<>(vertices);
     }
 
+    /**
+     * Clears the graph and rebuilds it using data from the provided file.
+     *
+     * @param filename the path to the graph data file
+     * @throws FileNotFoundException if the file cannot be opened
+     */
     @Override
     public void generateGraphFrom(String filename) throws FileNotFoundException {
         this.vertices.clear();
@@ -100,5 +136,25 @@ public class MatrixGraph implements Graph {
             }
 
         }
+    }
+
+    /**
+     * Retrieves all adjacent vertices connected by an outgoing edge from the given vertex.
+     *
+     * @param v the source vertex
+     * @return a list of neighboring vertices
+     */
+    @Override
+    public List<Vertex> getNeighbors(Vertex v) {
+        List<Vertex> neighbors = new ArrayList<>();
+        int index = vertices.indexOf(v);
+        if (index != -1) {
+            for (int i = 0; i < vertices.size(); i++) {
+                if (adjacencyMatrix[index][i]) {
+                    neighbors.add(vertices.get(i));
+                }
+            }
+        }
+        return neighbors;
     }
 }
