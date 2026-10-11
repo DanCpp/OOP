@@ -151,7 +151,9 @@ public class IncidenceGraph implements Graph {
         this.incidenceMatrix = new int[INITIAL_CAPACITY][INITIAL_CAPACITY];
 
         try (Scanner scanner = new Scanner(new File(filename))) {
-            if (!scanner.hasNextInt()) return;
+            if (!scanner.hasNextInt()) {
+                return;
+            }
 
             int v = scanner.nextInt();
             int e = scanner.nextInt();
@@ -186,17 +188,17 @@ public class IncidenceGraph implements Graph {
      * @param vSize the required number of vertices
      * @param eSize the required number of edges
      */
-    private void ensureCapacity(int vSize, int eSize) {
-        int vLen = incidenceMatrix.length;
-        int eLen = incidenceMatrix[0].length;
+    private void ensureCapacity(int vertexSize, int edgeSize) {
+        int vertexLen = incidenceMatrix.length;
+        int edgeLen = incidenceMatrix[0].length;
 
-        if (vSize > vLen || eSize > eLen) {
-            int newVLen = Math.max(vLen * 2, vSize);
-            int newELen = Math.max(eLen * 2, eSize);
-            int[][] newMatrix = new int[newVLen][newELen];
+        if (vertexSize > vertexLen || edgeSize > edgeLen) {
+            int newVertexLen = Math.max(vertexLen * 2, vertexSize);
+            int newEdgeLen = Math.max(edgeLen * 2, edgeSize);
+            int[][] newMatrix = new int[newVertexLen][newEdgeLen];
 
-            for (int i = 0; i < vLen; i++) {
-                System.arraycopy(incidenceMatrix[i], 0, newMatrix[i], 0, eLen);
+            for (int i = 0; i < vertexLen; i++) {
+                System.arraycopy(incidenceMatrix[i], 0, newMatrix[i], 0, edgeLen);
             }
             incidenceMatrix = newMatrix;
         }
@@ -212,14 +214,14 @@ public class IncidenceGraph implements Graph {
     @Override
     public List<Vertex> getNeighbors(Vertex v) {
         List<Vertex> neighbors = new ArrayList<>();
-        int vIndex = vertices.indexOf(v);
-        if (vIndex == -1) return neighbors;
+        int vertexIndex = vertices.indexOf(v);
+        if (vertexIndex == -1) return neighbors;
 
         for (int e = 0; e < edges.size(); e++) {
-            if (incidenceMatrix[vIndex][e] == 1 || incidenceMatrix[vIndex][e] == 2) {
+            if (incidenceMatrix[vertexIndex][e] == 1 || incidenceMatrix[vertexIndex][e] == 2) {
                 for (int i = 0; i < vertices.size(); i++) {
-                    if ((incidenceMatrix[i][e] == -1 || incidenceMatrix[i][e] == 2) &&
-                            (i != vIndex || incidenceMatrix[vIndex][e] == 2)) {
+                    if ((incidenceMatrix[i][e] == -1 || incidenceMatrix[i][e] == 2)
+                            && (i != vertexIndex || incidenceMatrix[vertexIndex][e] == 2)) {
                         neighbors.add(vertices.get(i));
                         break;
                     }
