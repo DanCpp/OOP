@@ -34,6 +34,24 @@ public class ListGraph implements Graph {
     }
 
     /**
+     * Removes a vertex and all its incident edges from the graph.
+     *
+     * @param v the vertex to be removed
+     * @throws IllegalArgumentException if the vertex is not present in the graph
+     */
+    @Override
+    public void removeVertex(Vertex v) {
+        if (!adjacencyList.containsKey(v)) {
+            return;
+        }
+
+        adjacencyList.remove(v);
+        for (List<Vertex> neighbors : adjacencyList.values()) {
+            neighbors.remove(v);
+        }
+    }
+
+    /**
      * Adds a directed edge between two vertices. Missing vertices are added automatically.
      *
      * @param from the source vertex
@@ -124,5 +142,56 @@ public class ListGraph implements Graph {
     @Override
     public List<Vertex> getNeighbors(Vertex v) {
         return new ArrayList<>(adjacencyList.getOrDefault(v, new ArrayList<>()));
+    }
+
+    /**
+     * Compares this graph with another object for structural equality.
+     *
+     * @param o the object to compare with
+     * @return {@code true} if {@code o} is a {@link Graph} with the same vertices and edges
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Graph other)) {
+            return false;
+        }
+        return Graph.equals(this, other);
+    }
+
+    /**
+     * Returns the hash code for this graph.
+     *
+     * @return the hash code value
+     */
+    @Override
+    public int hashCode() {
+        return Graph.hashCode(this);
+    }
+
+    /**
+     * Returns a formatted string representation of the adjacency list.
+     *
+     * @return the adjacency list as a string
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("ListGraph: ");
+        if (adjacencyList.isEmpty()) {
+            sb.append("  (empty) ");
+            return sb.toString();
+        }
+
+        for (Map.Entry<Vertex, List<Vertex>> entry : adjacencyList.entrySet()) {
+            sb.append("  ")
+              .append(entry.getKey())
+              .append(" -> ")
+              .append(entry.getValue())
+              .append(" ");
+        }
+        return sb.toString();
     }
 }

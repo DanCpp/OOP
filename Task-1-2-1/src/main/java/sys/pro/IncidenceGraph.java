@@ -20,6 +20,11 @@ public class IncidenceGraph implements Graph {
     private int[][] incidenceMatrix;
     private static final int INITIAL_CAPACITY = 10;
 
+    private static final int LOOP_EDGE = 2;
+    private static final int FROM_EDGE = 1;
+    private static final int NO_EDGE = 0;
+    private static final int TO_EDGE = -1;
+
     /**
      * Internal class representing a directed edge in the graph.
      */
@@ -63,6 +68,37 @@ public class IncidenceGraph implements Graph {
     }
 
     /**
+     * Removes a vertex and all its incident edges from the graph.
+     *
+     * @param v the vertex to be removed
+     * @throws IllegalArgumentException if the vertex is not present in the graph
+     */
+    @Override
+    public void removeVertex(Vertex v) {
+        int vertexIndex = vertices.indexOf(v);
+        if (vertexIndex == -1) {
+            return;
+        }
+
+        for (int i = edges.size() - 1; i >= 0; i--) {
+            Edge edge = edges.get(i);
+            if (edge.from.equals(v) || edge.to.equals(v)) {
+                removeEdge(edge.from, edge.to);
+            }
+        }
+
+        vertices.remove(vertexIndex);
+        for (int i = vertexIndex; i < vertices.size(); i++) {
+            for (int j = 0; j < edges.size(); j++) {
+                incidenceMatrix[i][j] = incidenceMatrix[i + 1][j];
+            }
+        }
+        for (int j = 0; j < edges.size(); j++) {
+            incidenceMatrix[vertices.size()][j] = NO_EDGE;
+        }
+    }
+
+    /**
      * Adds a directed edge between two vertices.
      * If the vertices do not exist, they are added to the graph automatically.
      *
@@ -93,10 +129,10 @@ public class IncidenceGraph implements Graph {
         int edgeIndex = edges.size() - 1;
 
         if (from.equals(to)) {
-            incidenceMatrix[fromIndex][edgeIndex] = 2;
+            incidenceMatrix[fromIndex][edgeIndex] = LOOP_EDGE;
         } else {
-            incidenceMatrix[fromIndex][edgeIndex] = 1;
-            incidenceMatrix[toIndex][edgeIndex] = -1;
+            incidenceMatrix[fromIndex][edgeIndex] = FROM_EDGE;
+            incidenceMatrix[toIndex][edgeIndex] = TO_EDGE;
         }
     }
 
@@ -123,7 +159,7 @@ public class IncidenceGraph implements Graph {
                 for (int j = edgeIndex; j < edges.size(); j++) {
                     incidenceMatrix[i][j] = incidenceMatrix[i][j + 1];
                 }
-                incidenceMatrix[i][edges.size()] = 0;
+                incidenceMatrix[i][edges.size()] = NO_EDGE;
             }
         }
     }
@@ -185,8 +221,8 @@ public class IncidenceGraph implements Graph {
      * Ensures the incidence matrix is large enough to hold the given number of
      * vertices and edges. Expands the internal array if needed.
      *
-     * @param vSize the required number of vertices
-     * @param eSize the required number of edges
+     * @param vertexSize the required number of vertices
+     * @param edgeSize   the required number of edges
      */
     private void ensureCapacity(int vertexSize, int edgeSize) {
         int vertexLen = incidenceMatrix.length;
@@ -215,13 +251,16 @@ public class IncidenceGraph implements Graph {
     public List<Vertex> getNeighbors(Vertex v) {
         List<Vertex> neighbors = new ArrayList<>();
         int vertexIndex = vertices.indexOf(v);
-        if (vertexIndex == -1) return neighbors;
+        if (vertexIndex == -1) {
+            return neighbors;
+        }
 
         for (int e = 0; e < edges.size(); e++) {
-            if (incidenceMatrix[vertexIndex][e] == 1 || incidenceMatrix[vertexIndex][e] == 2) {
+            if (incidenceMatrix[vertexIndex][e] == FROM_EDGE
+                    || incidenceMatrix[vertexIndex][e] == LOOP_EDGE) {
                 for (int i = 0; i < vertices.size(); i++) {
-                    if ((incidenceMatrix[i][e] == -1 || incidenceMatrix[i][e] == 2)
-                            && (i != vertexIndex || incidenceMatrix[vertexIndex][e] == 2)) {
+                    if ((incidenceMatrix[i][e] == TO_EDGE || incidenceMatrix[i][e] == LOOP_EDGE)
+                            && (i != vertexIndex || incidenceMatrix[vertexIndex][e] == LOOP_EDGE)) {
                         neighbors.add(vertices.get(i));
                         break;
                     }
@@ -229,5 +268,62 @@ public class IncidenceGraph implements Graph {
             }
         }
         return neighbors;
+    }
+
+    /**
+     * Compares this graph with another object for structural equality.
+     *
+     * @param o the object to compare with
+     * @return {@code true} if {@code o} is a {@link Graph} with the same vertices and edges
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Graph other)) {
+            return false;
+        }
+        return Graph.equals(this, other);
+    }
+
+    /**
+     * Returns the hash code for this graph.
+     *
+     * @return the hash code value
+     */
+    @Override
+    public int hashCode() {
+        return Graph.hashCode(this);
+    }
+
+    /**
+     * Returns a formatted string representation of the incidence matrix.
+     *
+     * @return the incidence matrix as a string
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("IncidenceGraph:");
+        if (vertices.isEmpty()) {
+            sb.append("  (empty)  ");
+            return sb.toString();
+        }
+
+        sb.append(String.format("%6s", ""));
+        for (Edge edge : edges) {
+            sb.append(String.format("%8s", edge.from + "->" + edge.to));
+        }
+        sb.append("");
+
+        for (int i = 0; i < vertices.size(); i++) {
+            sb.append(String.format("%4s: ", vertices.get(i)));
+            for (int j = 0; j < edges.size(); j++) {
+                sb.append(String.format("%8d", incidenceMatrix[i][j]));
+            }
+            sb.append("");
+        }
+        return sb.toString();
     }
 }

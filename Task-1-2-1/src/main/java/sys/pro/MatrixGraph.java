@@ -1,8 +1,11 @@
 package sys.pro;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -43,6 +46,40 @@ public class MatrixGraph implements Graph {
                 }
                 adjacencyMatrix = newMatrix;
             }
+        }
+    }
+
+    /**
+     * Removes a vertex and all its incident edges from the graph.
+     *
+     * @param v the vertex to be removed
+     * @throws IllegalArgumentException if the vertex is not present in the graph
+     */
+    @Override
+    public void removeVertex(Vertex v) {
+        int index = vertices.indexOf(v);
+        if (index == -1) {
+            return;
+        }
+
+        vertices.remove(index);
+        int size = vertices.size();
+
+        for (int i = index; i < size; i++) {
+            for (int j = 0; j <= size; j++) {
+                adjacencyMatrix[i][j] = adjacencyMatrix[i + 1][j];
+            }
+        }
+
+        for (int i = 0; i < size; i++) {
+            for (int j = index; j < size; j++) {
+                adjacencyMatrix[i][j] = adjacencyMatrix[i][j + 1];
+            }
+        }
+
+        for (int i = 0; i <= size; i++) {
+            adjacencyMatrix[size][i] = false;
+            adjacencyMatrix[i][size] = false;
         }
     }
 
@@ -106,7 +143,7 @@ public class MatrixGraph implements Graph {
         this.vertices.clear();
         this.adjacencyMatrix = new boolean[INITIAL_CAPACITY][INITIAL_CAPACITY];
 
-        try (java.util.Scanner scanner = new Scanner(new java.io.File(filename))) {
+        try (Scanner scanner = new Scanner(new File(filename))) {
             if (!scanner.hasNextInt()) {
                 return;
             }
@@ -114,7 +151,7 @@ public class MatrixGraph implements Graph {
             int v = scanner.nextInt();
             int e = scanner.nextInt();
 
-            java.util.Map<Integer, Vertex> vertexMap = new java.util.HashMap<>();
+            Map<Integer, Vertex> vertexMap = new HashMap<>();
 
             for (int i = 0; i < v; i++) {
                 int vertexName = scanner.nextInt();
@@ -134,7 +171,6 @@ public class MatrixGraph implements Graph {
                     addEdge(fromVertex, toVertex);
                 }
             }
-
         }
     }
 
@@ -156,5 +192,62 @@ public class MatrixGraph implements Graph {
             }
         }
         return neighbors;
+    }
+
+    /**
+     * Compares this graph with another object for structural equality.
+     *
+     * @param o the object to compare with
+     * @return {@code true} if {@code o} is a {@link Graph} with the same vertices and edges
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Graph other)) {
+            return false;
+        }
+        return Graph.equals(this, other);
+    }
+
+    /**
+     * Returns the hash code for this graph.
+     *
+     * @return the hash code value
+     */
+    @Override
+    public int hashCode() {
+        return Graph.hashCode(this);
+    }
+
+    /**
+     * Returns a formatted string representation of the adjacency matrix.
+     *
+     * @return the adjacency matrix as a string
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("MatrixGraph: ");
+        if (vertices.isEmpty()) {
+            sb.append("  (empty) ");
+            return sb.toString();
+        }
+
+        sb.append(String.format("%6s", ""));
+        for (Vertex v : vertices) {
+            sb.append(String.format("%5s", v));
+        }
+        sb.append(" ");
+
+        for (int i = 0; i < vertices.size(); i++) {
+            sb.append(String.format("%4s: ", vertices.get(i)));
+            for (int j = 0; j < vertices.size(); j++) {
+                sb.append(String.format("%5d", adjacencyMatrix[i][j] ? 1 : 0));
+            }
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 }

@@ -14,7 +14,7 @@ public class Vertex {
      *
      * @param name the unique integer identifier for this vertex
      */
-    Vertex(int name) {
+    public Vertex(int name) {
         this.name = name;
     }
 
@@ -23,8 +23,26 @@ public class Vertex {
      *
      * @return the integer name of the vertex
      */
-    int getName() {
+    public int getName() {
         return name;
+    }
+
+    /**
+     * Compares this vertex to the specified object for equality.
+     * Two vertices are equal if they have the same integer name.
+     *
+     * @param o the object to compare with
+     * @return {@code true} if the vertices have the same name, {@code false} otherwise
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Vertex vertex)) {
+            return false;
+        }
+        return name == vertex.name;
     }
 
     /**
@@ -35,5 +53,15 @@ public class Vertex {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    /**
+     * Returns the string representation of this vertex.
+     *
+     * @return the vertex name as a string
+     */
+    @Override
+    public String toString() {
+        return String.valueOf(name);
     }
 }
