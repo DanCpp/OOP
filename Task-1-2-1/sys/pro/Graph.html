@@ -86,7 +86,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -103,27 +103,66 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Adds a new vertex to the graph.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#generateGraphFrom(java.lang.String)" class="member-name-link">generateGraphFrom</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filename)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Compares the specified object with this graph for equality.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#equals(sys.pro.Graph)" class="member-name-link">equals</a><wbr>(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;other)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Compares this graph with another graph for structural equality,
+ regardless of the underlying graph representation.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#equals(sys.pro.Graph,sys.pro.Graph)" class="member-name-link">equals</a><wbr>(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;g1,
+ <a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;g2)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Compares two graphs for structural equality, regardless of their
+ concrete implementation (IncidenceGraph, MatrixGraph, or ListGraph).</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#generateGraphFrom(java.lang.String)" class="member-name-link">generateGraphFrom</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;filename)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Clears the current graph and rebuilds it using data from a specified file.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vertex.html" title="class in sys.pro">Vertex</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getNeighbors(sys.pro.Vertex)" class="member-name-link">getNeighbors</a><wbr>(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;v)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vertex.html" title="class in sys.pro">Vertex</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getNeighbors(sys.pro.Vertex)" class="member-name-link">getNeighbors</a><wbr>(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;v)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Retrieves a list of adjacent vertices reachable from the given vertex
  via outgoing edges.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vertex.html" title="class in sys.pro">Vertex</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getVertex()" class="member-name-link">getVertex</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vertex.html" title="class in sys.pro">Vertex</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getVertex()" class="member-name-link">getVertex</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Retrieves a list of all vertices currently present in the graph.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeEdge(sys.pro.Vertex,sys.pro.Vertex)" class="member-name-link">removeEdge</a><wbr>(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;from,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns the hash code value for this graph.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#hashCode(sys.pro.Graph)" class="member-name-link">hashCode</a><wbr>(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;graph)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Computes a representation-independent hash code for a graph based on
+ its vertices and outgoing edges.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeEdge(sys.pro.Vertex,sys.pro.Vertex)" class="member-name-link">removeEdge</a><wbr>(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;from,
  <a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;to)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Removes a directed edge between two vertices if it exists.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#removeVertex(sys.pro.Vertex)" class="member-name-link">removeVertex</a><wbr>(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;v)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Removes a present vertex in the graph.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns a string representation of this graph.</div>
 </div>
 </div>
 </div>
@@ -143,10 +182,23 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addVertex(sys.pro.Vertex)">
 <h3>addVertex</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addVertex</span><wbr><span class="parameters">(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;v)</span></div>
-<div class="block">Adds a new vertex to the graph.</div>
+<div class="block">Adds a new vertex to the graph.
+ Nothing happens if vertex is already present.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>v</code> - the vertex to be added</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeVertex(sys.pro.Vertex)">
+<h3>removeVertex</h3>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">removeVertex</span><wbr><span class="parameters">(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;v)</span></div>
+<div class="block">Removes a present vertex in the graph.
+ Nothing happens if vertex is not present.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>v</code> - is the vertex to be removed</dd>
 </dl>
 </section>
 </li>
@@ -155,7 +207,8 @@ loadScripts(document, 'script');</script>
 <h3>addEdge</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;from,
  <a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;to)</span></div>
-<div class="block">Adds a directed edge between two vertices in the graph.</div>
+<div class="block">Adds a directed edge between two vertices in the graph.
+ Nothing happens if edge (from, to) is already present.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>from</code> - the source vertex</dd>
@@ -168,7 +221,8 @@ loadScripts(document, 'script');</script>
 <h3>removeEdge</h3>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">removeEdge</span><wbr><span class="parameters">(<a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;from,
  <a href="Vertex.html" title="class in sys.pro">Vertex</a>&nbsp;to)</span></div>
-<div class="block">Removes a directed edge between two vertices if it exists.</div>
+<div class="block">Removes a directed edge between two vertices if it exists.
+ Nothing happens if edge is not present.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>from</code> - the source vertex</dd>
@@ -212,6 +266,93 @@ loadScripts(document, 'script');</script>
 <dd><code>v</code> - the source vertex</dd>
 <dt>Returns:</dt>
 <dd>a list of neighboring vertices</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="equals(sys.pro.Graph)">
+<h3>equals</h3>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;other)</span></div>
+<div class="block">Compares this graph with another graph for structural equality,
+ regardless of the underlying graph representation.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>other</code> - the other graph to compare with</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if both graphs have the same vertices and directed edges</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="equals(sys.pro.Graph,sys.pro.Graph)">
+<h3>equals</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;g1,
+ <a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;g2)</span></div>
+<div class="block">Compares two graphs for structural equality, regardless of their
+ concrete implementation (IncidenceGraph, MatrixGraph, or ListGraph).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>g1</code> - the first graph</dd>
+<dd><code>g2</code> - the second graph</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if both graphs contain the exact same vertices and edges</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hashCode(sys.pro.Graph)">
+<h3>hashCode</h3>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">hashCode</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in sys.pro">Graph</a>&nbsp;graph)</span></div>
+<div class="block">Computes a representation-independent hash code for a graph based on
+ its vertices and outgoing edges.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>graph</code> - the graph to hash</dd>
+<dt>Returns:</dt>
+<dd>the hash code value</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="equals(java.lang.Object)">
+<h3>equals</h3>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</span></div>
+<div class="block">Compares the specified object with this graph for equality.
+ Returns <code>true</code> if the specified object is also a <a href="Graph.html" title="interface in sys.pro"><code>Graph</code></a>
+ and the two graphs have the same vertices and edges.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>o</code> - object to be compared for equality with this graph</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the specified object is equal to this graph</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hashCode()">
+<h3>hashCode</h3>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">hashCode</span>()</div>
+<div class="block">Returns the hash code value for this graph.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Returns:</dt>
+<dd>the hash code value for this graph</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="toString()">
+<h3>toString</h3>
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
+<div class="block">Returns a string representation of this graph.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Returns:</dt>
+<dd>a string representation of this graph</dd>
 </dl>
 </section>
 </li>

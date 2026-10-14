@@ -48,7 +48,7 @@ loadScripts(document, 'script');</script>
 <div class="header">
 <h1>Index</h1>
 </div>
-<a href="#I:A">A</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
+<a href="#I:A">A</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
 <dt><a href="sys/pro/Graph.html#addEdge(sys.pro.Vertex,sys.pro.Vertex)" class="member-name-link">addEdge(Vertex, Vertex)</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
@@ -91,6 +91,39 @@ loadScripts(document, 'script');</script>
 <div class="block">Performs a topological sort on the given graph using Depth-First Search (DFS).</div>
 </dd>
 </dl>
+<h2 class="title" id="I:E">E</h2>
+<dl class="index">
+<dt><a href="sys/pro/Graph.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Compares the specified object with this graph for equality.</div>
+</dd>
+<dt><a href="sys/pro/IncidenceGraph.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class sys.pro.<a href="sys/pro/IncidenceGraph.html" title="class in sys.pro">IncidenceGraph</a></dt>
+<dd>
+<div class="block">Compares this graph with another object for structural equality.</div>
+</dd>
+<dt><a href="sys/pro/ListGraph.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class sys.pro.<a href="sys/pro/ListGraph.html" title="class in sys.pro">ListGraph</a></dt>
+<dd>
+<div class="block">Compares this graph with another object for structural equality.</div>
+</dd>
+<dt><a href="sys/pro/MatrixGraph.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class sys.pro.<a href="sys/pro/MatrixGraph.html" title="class in sys.pro">MatrixGraph</a></dt>
+<dd>
+<div class="block">Compares this graph with another object for structural equality.</div>
+</dd>
+<dt><a href="sys/pro/Vertex.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class sys.pro.<a href="sys/pro/Vertex.html" title="class in sys.pro">Vertex</a></dt>
+<dd>
+<div class="block">Compares this vertex to the specified object for equality.</div>
+</dd>
+<dt><a href="sys/pro/Graph.html#equals(sys.pro.Graph)" class="member-name-link">equals(Graph)</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Compares this graph with another graph for structural equality,
+ regardless of the underlying graph representation.</div>
+</dd>
+<dt><a href="sys/pro/Graph.html#equals(sys.pro.Graph,sys.pro.Graph)" class="member-name-link">equals(Graph, Graph)</a> - Static method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Compares two graphs for structural equality, regardless of their
+ concrete implementation (IncidenceGraph, MatrixGraph, or ListGraph).</div>
+</dd>
+</dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
 <dt><a href="sys/pro/Graph.html#generateGraphFrom(java.lang.String)" class="member-name-link">generateGraphFrom(String)</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
@@ -108,6 +141,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="sys/pro/MatrixGraph.html#generateGraphFrom(java.lang.String)" class="member-name-link">generateGraphFrom(String)</a> - Method in class sys.pro.<a href="sys/pro/MatrixGraph.html" title="class in sys.pro">MatrixGraph</a></dt>
 <dd>
 <div class="block">Clears the graph and rebuilds it using data from the provided file.</div>
+</dd>
+<dt><a href="sys/pro/Vertex.html#getName()" class="member-name-link">getName()</a> - Method in class sys.pro.<a href="sys/pro/Vertex.html" title="class in sys.pro">Vertex</a></dt>
+<dd>
+<div class="block">Retrieves the integer identifier of this vertex.</div>
 </dd>
 <dt><a href="sys/pro/Graph.html#getNeighbors(sys.pro.Vertex)" class="member-name-link">getNeighbors(Vertex)</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
 <dd>
@@ -150,9 +187,30 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
+<dt><a href="sys/pro/Graph.html#hashCode()" class="member-name-link">hashCode()</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Returns the hash code value for this graph.</div>
+</dd>
+<dt><a href="sys/pro/IncidenceGraph.html#hashCode()" class="member-name-link">hashCode()</a> - Method in class sys.pro.<a href="sys/pro/IncidenceGraph.html" title="class in sys.pro">IncidenceGraph</a></dt>
+<dd>
+<div class="block">Returns the hash code for this graph.</div>
+</dd>
+<dt><a href="sys/pro/ListGraph.html#hashCode()" class="member-name-link">hashCode()</a> - Method in class sys.pro.<a href="sys/pro/ListGraph.html" title="class in sys.pro">ListGraph</a></dt>
+<dd>
+<div class="block">Returns the hash code for this graph.</div>
+</dd>
+<dt><a href="sys/pro/MatrixGraph.html#hashCode()" class="member-name-link">hashCode()</a> - Method in class sys.pro.<a href="sys/pro/MatrixGraph.html" title="class in sys.pro">MatrixGraph</a></dt>
+<dd>
+<div class="block">Returns the hash code for this graph.</div>
+</dd>
 <dt><a href="sys/pro/Vertex.html#hashCode()" class="member-name-link">hashCode()</a> - Method in class sys.pro.<a href="sys/pro/Vertex.html" title="class in sys.pro">Vertex</a></dt>
 <dd>
 <div class="block">Computes the hash code for this vertex based on its name.</div>
+</dd>
+<dt><a href="sys/pro/Graph.html#hashCode(sys.pro.Graph)" class="member-name-link">hashCode(Graph)</a> - Static method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Computes a representation-independent hash code for a graph based on
+ its vertices and outgoing edges.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
@@ -223,6 +281,22 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Removes a directed edge between the specified vertices if they exist.</div>
 </dd>
+<dt><a href="sys/pro/Graph.html#removeVertex(sys.pro.Vertex)" class="member-name-link">removeVertex(Vertex)</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Removes a present vertex in the graph.</div>
+</dd>
+<dt><a href="sys/pro/IncidenceGraph.html#removeVertex(sys.pro.Vertex)" class="member-name-link">removeVertex(Vertex)</a> - Method in class sys.pro.<a href="sys/pro/IncidenceGraph.html" title="class in sys.pro">IncidenceGraph</a></dt>
+<dd>
+<div class="block">Removes a vertex and all its incident edges from the graph.</div>
+</dd>
+<dt><a href="sys/pro/ListGraph.html#removeVertex(sys.pro.Vertex)" class="member-name-link">removeVertex(Vertex)</a> - Method in class sys.pro.<a href="sys/pro/ListGraph.html" title="class in sys.pro">ListGraph</a></dt>
+<dd>
+<div class="block">Removes a vertex and all its incident edges from the graph.</div>
+</dd>
+<dt><a href="sys/pro/MatrixGraph.html#removeVertex(sys.pro.Vertex)" class="member-name-link">removeVertex(Vertex)</a> - Method in class sys.pro.<a href="sys/pro/MatrixGraph.html" title="class in sys.pro">MatrixGraph</a></dt>
+<dd>
+<div class="block">Removes a vertex and all its incident edges from the graph.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
@@ -237,6 +311,26 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="sys/pro/TopSort.html#%3Cinit%3E()" class="member-name-link">TopSort()</a> - Constructor for class sys.pro.<a href="sys/pro/TopSort.html" title="class in sys.pro">TopSort</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="sys/pro/Graph.html#toString()" class="member-name-link">toString()</a> - Method in interface sys.pro.<a href="sys/pro/Graph.html" title="interface in sys.pro">Graph</a></dt>
+<dd>
+<div class="block">Returns a string representation of this graph.</div>
+</dd>
+<dt><a href="sys/pro/IncidenceGraph.html#toString()" class="member-name-link">toString()</a> - Method in class sys.pro.<a href="sys/pro/IncidenceGraph.html" title="class in sys.pro">IncidenceGraph</a></dt>
+<dd>
+<div class="block">Returns a formatted string representation of the incidence matrix.</div>
+</dd>
+<dt><a href="sys/pro/ListGraph.html#toString()" class="member-name-link">toString()</a> - Method in class sys.pro.<a href="sys/pro/ListGraph.html" title="class in sys.pro">ListGraph</a></dt>
+<dd>
+<div class="block">Returns a formatted string representation of the adjacency list.</div>
+</dd>
+<dt><a href="sys/pro/MatrixGraph.html#toString()" class="member-name-link">toString()</a> - Method in class sys.pro.<a href="sys/pro/MatrixGraph.html" title="class in sys.pro">MatrixGraph</a></dt>
+<dd>
+<div class="block">Returns a formatted string representation of the adjacency matrix.</div>
+</dd>
+<dt><a href="sys/pro/Vertex.html#toString()" class="member-name-link">toString()</a> - Method in class sys.pro.<a href="sys/pro/Vertex.html" title="class in sys.pro">Vertex</a></dt>
+<dd>
+<div class="block">Returns the string representation of this vertex.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:V">V</h2>
 <dl class="index">
@@ -244,8 +338,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Represents a single vertex (or node) in a graph.</div>
 </dd>
+<dt><a href="sys/pro/Vertex.html#%3Cinit%3E(int)" class="member-name-link">Vertex(int)</a> - Constructor for class sys.pro.<a href="sys/pro/Vertex.html" title="class in sys.pro">Vertex</a></dt>
+<dd>
+<div class="block">Constructs a new vertex with the specified integer identifier.</div>
+</dd>
 </dl>
-<a href="#I:A">A</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
+<a href="#I:A">A</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:V">V</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a></main>
 </div>
 </div>
 </body>
