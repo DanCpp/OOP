@@ -82,6 +82,40 @@ class IncidenceGraphTest extends GraphTest {
         assertTrue(str.contains("-1"));
     }
 
+    @Test
+    void testIncidenceGraphAddBackEdge() throws Exception {
+        IncidenceGraph incidenceGraph = (IncidenceGraph) graph;
+        Vertex v1 = new Vertex(1);
+        Vertex v2 = new Vertex(2);
+
+        incidenceGraph.addEdge(v1, v2);
+        List<?> edges = getEdges(incidenceGraph);
+        int[][] incidenceMatrix = getIncidenceMatrix(incidenceGraph);
+        List<Vertex> vertices = incidenceGraph.getVertex();
+
+        int v1Index = vertices.indexOf(v1);
+        int v2Index = vertices.indexOf(v2);
+
+        assertEquals(1, edges.size());
+        assertEquals(1, incidenceMatrix[v1Index][0]);
+        assertEquals(-1, incidenceMatrix[v2Index][0]);
+
+        incidenceGraph.addEdge(v2, v1);
+
+        edges = getEdges(incidenceGraph);
+        incidenceMatrix = getIncidenceMatrix(incidenceGraph);
+        vertices = incidenceGraph.getVertex();
+
+        v1Index = vertices.indexOf(v1);
+        v2Index = vertices.indexOf(v2);
+
+        assertEquals(2, edges.size());
+        assertEquals(1, incidenceMatrix[v1Index][0]);
+        assertEquals(-1, incidenceMatrix[v2Index][0]);
+        assertEquals(-1, incidenceMatrix[v1Index][1]);
+        assertEquals(1, incidenceMatrix[v2Index][1]);
+    }
+
     @SuppressWarnings("unchecked")
     private List<?> getEdges(IncidenceGraph graph) throws Exception {
         Field field = IncidenceGraph.class.getDeclaredField("edges");

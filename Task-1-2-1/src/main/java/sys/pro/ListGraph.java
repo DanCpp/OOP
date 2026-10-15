@@ -37,7 +37,6 @@ public class ListGraph implements Graph {
      * Removes a vertex and all its incident edges from the graph.
      *
      * @param v the vertex to be removed
-     * @throws IllegalArgumentException if the vertex is not present in the graph
      */
     @Override
     public void removeVertex(Vertex v) {
