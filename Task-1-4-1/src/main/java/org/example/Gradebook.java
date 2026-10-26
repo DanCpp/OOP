@@ -93,7 +93,9 @@ public class Gradebook {
      * @return true if the student meets the transfer criteria
      */
     public boolean canTransferToBudget() {
-        if (assessments.isEmpty()) return false;
+        if (assessments.isEmpty()) {
+            return false;
+        }
 
         int currentSemester = assessments.stream()
                 .mapToInt(Assessment::semester)
@@ -121,20 +123,28 @@ public class Gradebook {
      * @return true if the current academic performance qualifies for a red diploma
      */
     public boolean isEligibleForRedDiploma() {
-        if (assessments.isEmpty()) return false;
+        if (assessments.isEmpty()) {
+            return false;
+        }
 
         boolean hasSatisfactory = assessments.stream()
                 .anyMatch(a -> a.mark() == Mark.SATISFACTORY);
-        if (hasSatisfactory) return false;
+        if (hasSatisfactory) {
+            return false;
+        }
 
         boolean hasNoCredits = assessments.stream()
                 .anyMatch(a -> a.type() == ControlType.CREDIT && a.mark() == Mark.NO_CREDIT);
-        if (hasNoCredits) return false;
+        if (hasNoCredits) {
+            return false;
+        }
 
         boolean vkrNotExcellent = assessments.stream()
                 .filter(a -> a.type() == ControlType.VKR_DEFENSE)
                 .anyMatch(a -> a.mark() != Mark.EXCELLENT);
-        if (vkrNotExcellent) return false;
+        if (vkrNotExcellent) {
+            return false;
+        }
 
         Collection<Assessment> finalGrades = assessments.stream()
                 .filter(a -> a.mark().isNumeric())
@@ -145,7 +155,9 @@ public class Gradebook {
                 ))
                 .values();
 
-        if (finalGrades.isEmpty()) return false;
+        if (finalGrades.isEmpty()) {
+            return false;
+        }
 
         long excellentCount = finalGrades.stream()
                 .filter(a -> a.mark() == Mark.EXCELLENT)
@@ -163,7 +175,9 @@ public class Gradebook {
      * @return true if the student is eligible for an increased scholarship
      */
     public boolean isEligibleForIncreasedScholarship() {
-        if (assessments.isEmpty()) return false;
+        if (assessments.isEmpty()) {
+            return false;
+        }
 
         int currentSemester = assessments.stream()
                 .mapToInt(Assessment::semester)
@@ -174,7 +188,9 @@ public class Gradebook {
                 .filter(a -> a.semester() == currentSemester)
                 .toList();
 
-        if (lastSemesterAssessments.isEmpty()) return false;
+        if (lastSemesterAssessments.isEmpty()) {
+            return false;
+        }
 
         return lastSemesterAssessments.stream()
                 .filter(a -> a.mark().isNumeric())
