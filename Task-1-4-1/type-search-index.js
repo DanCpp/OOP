@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.example","l":"Gradebook.Assessment"},{"p":"org.example","l":"Gradebook.ControlType"},{"p":"org.example","l":"Gradebook"},{"p":"org.example","l":"Main"},{"p":"org.example","l":"Gradebook.Mark"}];updateSearchResults();
