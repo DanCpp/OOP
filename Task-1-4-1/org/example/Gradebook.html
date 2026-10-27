@@ -134,16 +134,24 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addAssessment(org.example.Gradebook.Assessment)" class="member-name-link">addAssessment</a><wbr>(<a href="Gradebook.Assessment.html" title="class in org.example">Gradebook.Assessment</a>&nbsp;assessment)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a new assessment record to the gradebook.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateAverageGrade()" class="member-name-link">calculateAverageGrade</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Calculates the current average grade for the entire period of study.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canTransferToBudget()" class="member-name-link">canTransferToBudget</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks eligibility for transfer from paid to state-funded (budget) education.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEligibleForIncreasedScholarship()" class="member-name-link">isEligibleForIncreasedScholarship</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks eligibility for an increased scholarship in the current semester.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEligibleForRedDiploma()" class="member-name-link">isEligibleForRedDiploma</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -184,18 +192,35 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addAssessment(org.example.Gradebook.Assessment)">
 <h3>addAssessment</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addAssessment</span><wbr><span class="parameters">(<a href="Gradebook.Assessment.html" title="class in org.example">Gradebook.Assessment</a>&nbsp;assessment)</span></div>
+<div class="block">Adds a new assessment record to the gradebook.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>assessment</code> - the assessment record object</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="calculateAverageGrade()">
 <h3>calculateAverageGrade</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">calculateAverageGrade</span>()</div>
+<div class="block">Calculates the current average grade for the entire period of study.
+ Only differentiated marks (exams, diff credits, thesis) are considered.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the average grade, or 0.0 if there are no suitable marks</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="canTransferToBudget()">
 <h3>canTransferToBudget</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canTransferToBudget</span>()</div>
+<div class="block">Checks eligibility for transfer from paid to state-funded (budget) education.
+ Requires no satisfactory marks for exams and no unpassed credits in the last two semesters.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the student meets the transfer criteria</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -215,6 +240,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isEligibleForIncreasedScholarship()">
 <h3>isEligibleForIncreasedScholarship</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEligibleForIncreasedScholarship</span>()</div>
+<div class="block">Checks eligibility for an increased scholarship in the current semester.
+ Requires only excellent marks in the last completed semester.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the student is eligible for an increased scholarship</dd>
+</dl>
 </section>
 </li>
 </ul>
