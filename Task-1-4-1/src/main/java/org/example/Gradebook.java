@@ -59,10 +59,21 @@ public class Gradebook {
 
     private final List<Assessment> assessments = new ArrayList<>();
 
+    /**
+     * Adds a new assessment record to the gradebook.
+     *
+     * @param assessment the assessment record object
+     */
     public void addAssessment(Assessment assessment) {
         assessments.add(assessment);
     }
 
+    /**
+     * Calculates the current average grade for the entire period of study.
+     * Only differentiated marks (exams, diff credits, thesis) are considered.
+     *
+     * @return the average grade, or 0.0 if there are no suitable marks
+     */
     public double calculateAverageGrade() {
         return assessments.stream()
                 .filter(a -> a.mark().isNumeric())
@@ -71,6 +82,12 @@ public class Gradebook {
                 .orElse(0.0);
     }
 
+    /**
+     * Checks eligibility for transfer from paid to state-funded (budget) education.
+     * Requires no satisfactory marks for exams and no unpassed credits in the last two semesters.
+     *
+     * @return true if the student meets the transfer criteria
+     */
     public boolean canTransferToBudget() {
         if (assessments.isEmpty()) {
             return false;
@@ -148,6 +165,12 @@ public class Gradebook {
         return excellentPercentage >= 0.75;
     }
 
+    /**
+     * Checks eligibility for an increased scholarship in the current semester.
+     * Requires only excellent marks in the last completed semester.
+     *
+     * @return true if the student is eligible for an increased scholarship
+     */
     public boolean isEligibleForIncreasedScholarship() {
         if (assessments.isEmpty()) {
             return false;
