@@ -25,20 +25,10 @@ public class Gradebook {
             this.numericValue = numericValue;
         }
 
-        /**
-         * Returns the numeric equivalent of the mark.
-         *
-         * @return numeric value (5, 4, 3, or 0 for credits)
-         */
         public int getNumericValue() {
             return numericValue;
         }
 
-        /**
-         * Checks if the mark is numeric (affects the average grade).
-         *
-         * @return true if the mark has a numeric weight greater than zero
-         */
         public boolean isNumeric() {
             return numericValue > 0;
         }
@@ -59,25 +49,20 @@ public class Gradebook {
      * @param type     assessment type
      * @param mark     received mark
      */
-    public record Assessment(int semester, String subject, ControlType type, Mark mark) {}
+    public record Assessment(int semester, String subject, ControlType type, Mark mark) {
+        public Assessment {
+            if (semester < 1 || semester > 8) {
+                throw new IllegalArgumentException("");
+            }
+        }
+    }
 
     private final List<Assessment> assessments = new ArrayList<>();
 
-    /**
-     * Adds a new assessment record to the gradebook.
-     *
-     * @param assessment the assessment record object
-     */
     public void addAssessment(Assessment assessment) {
         assessments.add(assessment);
     }
 
-    /**
-     * Calculates the current average grade for the entire period of study.
-     * Only differentiated marks (exams, diff credits, thesis) are considered.
-     *
-     * @return the average grade, or 0.0 if there are no suitable marks
-     */
     public double calculateAverageGrade() {
         return assessments.stream()
                 .filter(a -> a.mark().isNumeric())
@@ -86,12 +71,6 @@ public class Gradebook {
                 .orElse(0.0);
     }
 
-    /**
-     * Checks eligibility for transfer from paid to state-funded (budget) education.
-     * Requires no satisfactory marks for exams and no unpassed credits in the last two semesters.
-     *
-     * @return true if the student meets the transfer criteria
-     */
     public boolean canTransferToBudget() {
         if (assessments.isEmpty()) {
             return false;
@@ -124,7 +103,7 @@ public class Gradebook {
      */
     public boolean isEligibleForRedDiploma() {
         if (assessments.isEmpty()) {
-            return false;
+            return true;
         }
 
         boolean hasSatisfactory = assessments.stream()
@@ -139,15 +118,16 @@ public class Gradebook {
             return false;
         }
 
-        boolean vkrNotExcellent = assessments.stream()
+        Optional<Assessment> vkr = assessments.stream()
                 .filter(a -> a.type() == ControlType.VKR_DEFENSE)
-                .anyMatch(a -> a.mark() != Mark.EXCELLENT);
-        if (vkrNotExcellent) {
+                .findFirst();
+
+        if (vkr.isPresent() && vkr.get().mark() != Mark.EXCELLENT) {
             return false;
         }
 
         Collection<Assessment> finalGrades = assessments.stream()
-                .filter(a -> a.mark().isNumeric())
+                .filter(a -> a.mark().isNumeric() && a.type() != ControlType.VKR_DEFENSE)
                 .collect(Collectors.toMap(
                         Assessment::subject,
                         a -> a,
@@ -156,7 +136,7 @@ public class Gradebook {
                 .values();
 
         if (finalGrades.isEmpty()) {
-            return false;
+            return true;
         }
 
         long excellentCount = finalGrades.stream()
@@ -168,12 +148,6 @@ public class Gradebook {
         return excellentPercentage >= 0.75;
     }
 
-    /**
-     * Checks eligibility for an increased scholarship in the current semester.
-     * Requires only excellent marks in the last completed semester.
-     *
-     * @return true if the student is eligible for an increased scholarship
-     */
     public boolean isEligibleForIncreasedScholarship() {
         if (assessments.isEmpty()) {
             return false;

@@ -79,7 +79,7 @@ class GradebookTest {
 
     @Test
     void testIsEligibleForRedDiploma_Empty() {
-        assertFalse(gradebook.isEligibleForRedDiploma());
+        assertTrue(gradebook.isEligibleForRedDiploma());
     }
 
     @Test
